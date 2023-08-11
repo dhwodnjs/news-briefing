@@ -93,10 +93,13 @@
 - Python 3.8
 - fastapi 0.100.1
 
-- npm 9.8.1
 - Node 18.12.0
-- React 18.2.0
-- Redux
-- Typescript 5.1
-- ESLint 2.4.2
-- Prettier 10.1.2
+- npm 9.8.1
+
+- React 18.2.20
+- Redux 4.2.1
+- Typescript 5.1.6
+
+- ESLint 8.46.0
+- Prettier 3.0.1
+- create-react-app 5.0.1
