@@ -10,12 +10,14 @@
       - main.tsx
       - article.tsx
       - customize.tsx
+      - profile.tsx
+      - theme.tsx
 
     - styles
 
       - pages
-        - main.ts
-        - article.ts
+        - main.styled.tsx
+        - article.styled.tsx
         - ...
       - components
         - ...
@@ -98,7 +100,8 @@
 
 - React 18.2.20
 - Redux 4.2.1
-- Typescript 5.1.6
+- Typescript 4.9.5
+- styled-components 6.0.7
 
 - ESLint 8.46.0
 - Prettier 3.0.1
