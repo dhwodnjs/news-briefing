@@ -5,9 +5,9 @@
  * Locate at Main.tsx right bottom.
  * (For now, section is named as 많이 본 뉴스 in figma)
  */
-import React from 'react';
-import * as S from '../styles';
-import SectionTitle from './SectionTitle';
+import React from "react";
+import * as S from "../styles";
+import SectionTitle from "./SectionTitle";
 
 const Brief = () => {
   /**
@@ -21,7 +21,7 @@ const Brief = () => {
    */
   return (
     <S.BriefContainer>
-      <SectionTitle text="브리핑" />
+      <SectionTitle text="뉴스 브리핑" />
       <S.BriefWrapper>
         <S.BriefButton>맞춤 브리핑</S.BriefButton>
         <S.BriefButton>테마별 브리핑</S.BriefButton>

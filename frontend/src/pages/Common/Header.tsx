@@ -1,5 +1,6 @@
-import React from 'react';
-import * as S from '../styles';
+import React from "react";
+import * as S from "../styles";
+import { useNavigate } from "react-router-dom";
 
 const Header = () => {
   /**
@@ -7,7 +8,20 @@ const Header = () => {
    * Just a header with logo
    * Logo is clickable and redirects to main page
    */
-  return <S.HeaderContainer>Header</S.HeaderContainer>;
+
+  const navigate = useNavigate();
+
+  return (
+    <S.HeaderContainer>
+      <S.HeaderText
+        onClick={() => {
+          navigate(`/`);
+        }}
+      >
+        Genie News
+      </S.HeaderText>
+    </S.HeaderContainer>
+  );
 };
 
 export default Header;
