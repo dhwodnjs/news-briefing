@@ -2,6 +2,8 @@ import React from "react";
 import * as S from "../styles";
 import SectionTitle from "./SectionTitle";
 import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { selectRecommendation } from "../../redux/selector";
 
 interface RecommendationItem {
   title: string;
@@ -15,28 +17,7 @@ interface RecommendationItem {
  * @returns 추천 뉴스 컴포넌트
  */
 const UserRecommendations = () => {
-  const defaultRecommendations: RecommendationItem[] = [
-    {
-      title: "코로나19 신규 확진 1,100명대…사흘째 1천명대",
-      id: 1,
-      press: "[연합뉴스]",
-    },
-    {
-      title: "코로나19 신규 확진 1,100명대…사흘째 1천명대",
-      id: 2,
-      press: "[연합뉴스]",
-    },
-    {
-      title: "코로나19 신규 확진 1,100명대…사흘째 1천명대",
-      id: 3,
-      press: "[연합뉴스]",
-    },
-    {
-      title: "코로나19 신규 확진 1,100명대…사흘째 1천명대",
-      id: 4,
-      press: "[연합뉴스]",
-    },
-  ];
+  const defaultRecommendations = useSelector(selectRecommendation);
 
   const navigate = useNavigate();
 
@@ -54,7 +35,7 @@ const UserRecommendations = () => {
             <S.RecommendationPress>{item.press}</S.RecommendationPress>
             <S.RecommendationTitle
               onClick={() => {
-                navigate("/article");
+                navigate(`/article/${item.id}`);
               }}
             >
               {item.title}

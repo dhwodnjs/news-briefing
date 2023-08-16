@@ -13,6 +13,7 @@ const defaultCategories: CategoryItem[] = [
   { name: "생활/문화" },
   { name: "세계" },
   { name: "IT/과학" },
+  { name: "test" },
 ];
 
 const Categories = () => {
@@ -33,7 +34,7 @@ const Categories = () => {
           <S.CategoriesItemButton
             key={index}
             onClick={() => {
-              navigate(`/themes/${index}`);
+              navigate(`/themes/${category.name}`);
             }}
           >
             {category.name}

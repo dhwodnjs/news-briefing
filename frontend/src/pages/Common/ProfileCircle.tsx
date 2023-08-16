@@ -33,7 +33,7 @@ const ProfileCircle = () => {
       </S.ProfileCircleItem>
       <S.ProfileChangeButton
         onClick={() => {
-          navigate("/profile");
+          navigate("/");
         }}
       >
         🤓

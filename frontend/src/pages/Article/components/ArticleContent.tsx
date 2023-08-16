@@ -8,6 +8,8 @@ interface ArticleContentProps {
 }
 
 const ArticleContent = () => {
+  // id 받아와서, 해당 id에 맞는 article 불러와야 함 ..
+
   const DefaultArticle: ArticleContentProps = {
     title: "[경향신문] KT “한화, 하나도 안 무섭다”",
     image: process.env.PUBLIC_URL + `/image/image1.jpg`,

@@ -1,6 +1,8 @@
 import React from "react";
 import * as S from "../../styles";
 import SectionTitle from "../../Common/SectionTitle";
+import { useSelector } from "react-redux";
+import { selectThemeRecommendation } from "../../../redux/selector";
 
 interface ThemeRecommendationProps {
   theme: string;
@@ -12,16 +14,7 @@ interface ThemeRecommendationProps {
  * You need to specify button component.
  */
 const ThemeRecommendation = ({ theme }: ThemeRecommendationProps) => {
-  const DefaultRec = [
-    {
-      text: "테마별 추천 뉴스",
-      image: process.env.PUBLIC_URL + `/image/image1.jpg`,
-    },
-    {
-      text: "테마별 추천 뉴스",
-      image: process.env.PUBLIC_URL + `/image/image1.jpg`,
-    },
-  ];
+  const DefaultRec = useSelector(selectThemeRecommendation);
 
   return (
     <S.ThemeRecommendationContainer>
@@ -31,7 +24,7 @@ const ThemeRecommendation = ({ theme }: ThemeRecommendationProps) => {
           <S.ThemeRecommendationButtonWrapper key={index}>
             <S.ThemeRecommendationButtonImage src={rec.image} />
             <S.ThemeRecommendationButtonTitle>
-              {rec.text}
+              {rec.title}
             </S.ThemeRecommendationButtonTitle>
           </S.ThemeRecommendationButtonWrapper>
         ))}
