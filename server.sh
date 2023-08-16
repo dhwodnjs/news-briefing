@@ -5,6 +5,8 @@ if [[ $PWD != *"server"* ]]; then
     cd server
 fi
 
+source venv/bin/activate
+
 # (2) Check if MongoDB is turned on, if not, turn it on
 MONGO_STATUS=$(systemctl is-active mongod)
 

@@ -1,18 +1,27 @@
-import { createSlice } from "@reduxjs/toolkit";
-import { DArticle, IArticle } from "./interface";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { IArticle } from "./interface";
 
 export const headlineSlice = createSlice({
   name: "headline",
   initialState: {
-    article: {} as IArticle, // ???
+    status: "idle",
+    article: {} as IArticle, // !
   },
+
   reducers: {
-    initHeadlineSlice: (state) => {
-      state.article = DArticle;
-      //   {} as IArticle; // 불러와서 저장해야 되는데 ..
+    startFetching: (state) => {
+      state.status = "loading";
+    },
+    fetchedSuccessfully: (state, action: PayloadAction<IArticle>) => {
+      state.status = "succeeded";
+      state.article = action.payload;
+    },
+    fetchFailed: (state) => {
+      state.status = "failed";
     },
   },
 });
 
-export const { initHeadlineSlice } = headlineSlice.actions;
+export const { startFetching, fetchedSuccessfully, fetchFailed } =
+  headlineSlice.actions;
 export default headlineSlice.reducer;

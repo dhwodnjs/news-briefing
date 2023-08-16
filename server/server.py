@@ -1,9 +1,11 @@
 import json
+import os
 import random
 from typing import List, Optional
 
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import FileResponse, RedirectResponse
 from fastapi.staticfiles import StaticFiles
 
 from pymongo import MongoClient
@@ -36,6 +38,18 @@ async def shutdown_db_client():
     app.mongodb_client.close()
 
 
+@app.get("/api/sample")
+async def sample_news(num: Optional[int] = 1):
+    # Retrieve all documents matching the category
+    matching_news = list(app.mongodb_collection.find().limit(num))
+
+    for news in matching_news:
+        news["_id"] = str(news["_id"])
+    # Sample 4 documents randomly
+    samples = random.sample(matching_news, min(len(matching_news), num))
+    return json.dumps({"news": samples})
+
+
 @app.get("/api/sample/{category_id}")
 async def sample_news(category_id: int, num: Optional[int] = 4):
     # Retrieve all documents matching the category
@@ -45,54 +59,62 @@ async def sample_news(category_id: int, num: Optional[int] = 4):
         news["_id"] = str(news["_id"])
     # Sample 4 documents randomly
     samples = random.sample(matching_news, min(len(matching_news), num))
-    return {"sampled_news": samples}
+    return json.dumps({"news": samples})
 
 
-# API Section
-@app.get("/api/headline")
-async def get_headline():
-    with open("data/headline.json", "r", encoding="utf-8") as f:
-        data = json.load(f)
-    return data
+# @app.get("/{any}")
+# async def root(any: str):
+#     return RedirectResponse("/")
 
 
-# Get recommendation
-@app.get("/api/recommendation")
-async def get_recommendation():
-    with open("data/recommendation.json", "r", encoding="utf-8") as f:
-        data = json.load(f)
-    return data
+# @app.get("/{any}/{something}")
+# async def root(any: str):
+#     return RedirectResponse("/")
 
-# Get theme recommendation
-
-
-@app.get("/api/theme_recommendation")
-async def get_theme_recommendation():
-    # ['정치', '경제', '사회', '생활문화', '세계', 'IT과학', '오피니언']
-    with open("data/theme_recommendation.json", "r", encoding="utf-8") as f:
-        data = json.load(f)
-    return data
-
-# Get article
+# # API Section
+# @app.get("/api/headline")
+# async def get_headline():
+#     with open("data/headline.json", "r", encoding="utf-8") as f:
+#         data = json.load(f)
+#     return data
 
 
-@app.get("/api/article/{article_id}")
-async def get_article(article_id: int):
-    with open(f"data/article/{article_id}.json", "r", encoding="utf-8") as f:
-        data = json.load(f)
-    return data
+# # Get recommendation
+# @app.get("/api/recommendation")
+# async def get_recommendation():
+#     with open("data/recommendation.json", "r", encoding="utf-8") as f:
+#         data = json.load(f)
+#     return data
 
-# Get theme articles
+# # Get theme recommendation
 
 
-@app.get("/api/theme_article/{theme_id}")
-async def get_theme_article(theme_id: int):
-    with open(f"data/theme_article/{theme_id}.json", "r", encoding="utf-8") as f:
-        data = json.load(f)
-    return data
+# @app.get("/api/theme_recommendation")
+# async def get_theme_recommendation():
+#     # ['정치', '경제', '사회', '생활문화', '세계', 'IT과학', '오피니언']
+#     with open("data/theme_recommendation.json", "r", encoding="utf-8") as f:
+#         data = json.load(f)
+#     return data
+
+# # Get article
+
+
+# @app.get("/api/article/{article_id}")
+# async def get_article(article_id: int):
+#     with open(f"data/article/{article_id}.json", "r", encoding="utf-8") as f:
+#         data = json.load(f)
+#     return data
+
+# # Get theme articles
+
+
+# @app.get("/api/theme_article/{theme_id}")
+# async def get_theme_article(theme_id: int):
+#     with open(f"data/theme_article/{theme_id}.json", "r", encoding="utf-8") as f:
+#         data = json.load(f)
+#     return data
 
 
 # Static Section
-app.mount("/", StaticFiles(directory="build", html=True), name="build")
-
+app.mount("/", StaticFiles(directory="build/", html=True), name="build")
 # '정치': 100, '경제': 101, '사회': 102, '생활문화': 103, '세계': 104, 'IT과학': 105, '오피니언': 110, 'politics': 100,

@@ -15,8 +15,8 @@ function App() {
       <Provider store={store}>
         <div className="App">
           <Routes>
-            <Route path="/" element={<Profile />}></Route>
-            <Route path="/main" element={<Main />}></Route>
+            <Route path="/" element={<Main />}></Route>
+            <Route path="/profile" element={<Profile />}></Route>
             <Route path="/article/:id" element={<Article />}></Route>
             <Route path="/customize" element={<Customize />}></Route>
             <Route path="/themes/:theme" element={<Themes />}></Route>

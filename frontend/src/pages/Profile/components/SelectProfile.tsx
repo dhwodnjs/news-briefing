@@ -29,7 +29,7 @@ const SelectProfile = () => {
             <S.SelectProfileItem
               key={key}
               onClick={() => {
-                navigate("/main");
+                navigate("/");
               }}
             >
               <S.SelectProfileItemImage src={user.image} />
