@@ -1,1 +1,21 @@
-frontend/node-modules
+# Directories
+frontend/node-modules/
+server/venv/
+.vscode/
+server/build/
+
+# Files
+run.sh
+
+# Credentials
+config.json
+
+# File Extensions
+*.pyc
+
+# System Files
+.DS_Store
+
+# Miscellaneous
+.gitignore
+scripts.sh
