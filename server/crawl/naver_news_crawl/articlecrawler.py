@@ -189,8 +189,9 @@ class ArticleCrawler(object):
             body = self._extract_body_from_content(content_document)
             press = self._extract_press_from_content(content_document)
             date = self._extract_time_from_content(content_document)
+            category_id = self.categories.get(category_name)
             if image and title and body and press and date:
-                writer.write_row([date, category_name, press, title, body, content_url, image])
+                writer.write_row([date, category_name, press, title, body, content_url, image, category_id])
         except (TitleParseError, BodyParseError, PressParseError, DateParseError) as e:
             print(f"Error parsing content from {content_url}: {str(e)}")
 

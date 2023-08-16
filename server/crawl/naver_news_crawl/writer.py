@@ -12,12 +12,13 @@ class Writer(object):
         self.end_month = f'0{date["end_month"]}' if len(str(date['end_month'])) == 1 else str(date['end_month'])
         self.end_day = f'0{date["end_day"]}' if len(str(date['end_day'])) == 1 else str(date['end_day'])
         self.file = None
+        self.category_to_id = {'정치': 100, '경제': 101, '사회': 102, '생활문화': 103, '세계': 104, 'IT과학': 105, '오피니언': 110}
         self.initialize_file(category, article_category)
 
         self.csv_writer = csv.writer(self.file)
 
     def initialize_file(self, category, article_category):
-        output_path = f'server/output'
+        output_path = f'server/crawl/output'
         if os.path.exists(output_path) is not True:
             os.mkdir(output_path)
 
