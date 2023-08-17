@@ -5,8 +5,7 @@ import { useNavigate } from "react-router-dom";
 
 import { useDispatch, useSelector } from "react-redux";
 import { selectHeadline } from "../../../redux/selector";
-import { requestHeadline } from "../../../requests/requestHeadline";
-import { setHeadline } from "../../../redux/headline.slice";
+import { loadHeadline } from "../feature/handleHeadline";
 
 /**
  * 오늘의 헤드라인 컴포넌트
@@ -15,8 +14,9 @@ const TodayHeadline = () => {
   const defaultHeadline = useSelector(selectHeadline);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
-  useEffect(() => {}, [dispatch]);
+  useEffect(() => {
+    loadHeadline(dispatch);
+  }, []);
 
   return (
     <S.TodayHeadLineContainer>
