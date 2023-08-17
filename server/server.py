@@ -1,16 +1,16 @@
 import json
-import os
 import random
 from typing import List, Optional
 
-from fastapi import FastAPI
+from fastapi import FastAPI, Path, Response
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import FileResponse, RedirectResponse
+from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
 
 from pymongo import MongoClient
 
-from utils.request_genie import get_summary
+from utils.schemas import Text
+from feature.request_genie import get_summary, get_tts
 
 # App Setting Section
 
@@ -22,6 +22,10 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+# Mount static files
+
+app.mount("/static", StaticFiles(directory="build/static"), name="static")
 
 # when app start, connect to mongodb
 
@@ -60,6 +64,19 @@ async def sample_news(category_id: int, num: Optional[int] = 4):
     # Sample 4 documents randomly
     samples = random.sample(matching_news, min(len(matching_news), num))
     return json.dumps({"news": samples})
+
+
+@app.get("/api/test")
+async def test():
+    get_tts("안녕하세요 반갑습니다 케이티의 기가지니의 음성합성 기술입니다.")
+    return {"result": "success"}
+
+
+@app.post("/api/audio")
+async def audio(text: Text):
+    response = get_tts(text.text)
+    audio_content = response.content
+    return Response(content=audio_content, media_type="audio/mpeg")
 
 
 # @app.get("/{any}")
@@ -116,5 +133,12 @@ async def sample_news(category_id: int, num: Optional[int] = 4):
 
 
 # Static Section
-app.mount("/", StaticFiles(directory="build/", html=True), name="build")
+# app.mount("/", StaticFiles(directory="build", html=True), name="static")
+
+
+# Catch up
+@app.get("/{full_path:path}", tags=["React Routes"])
+async def catch_all(full_path: str):
+    return FileResponse("build/index.html")
+
 # '정치': 100, '경제': 101, '사회': 102, '생활문화': 103, '세계': 104, 'IT과학': 105, '오피니언': 110, 'politics': 100,

@@ -40,8 +40,8 @@ def request_genie(
         try:
             response = response.json()
         except json.decoder.JSONDecodeError:
-            print(f'json.decoder.JSONDecodeError occured.\nresponse.text: "{response.text}"')
+            print(f'json.decoder.JSONDecodeError occured.')
     else:
-        print(f"response.status_code: {response.status_code}\nresponse.text: {response.text}")
+        print(f"response.status_code: {response.status_code}")
 
     return response
