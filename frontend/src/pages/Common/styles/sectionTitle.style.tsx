@@ -14,7 +14,7 @@ const SectionTitleWrapper = styled.div`
 `;
 
 const SectionTitleText = styled.div`
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 700;
 `;
 

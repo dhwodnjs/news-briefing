@@ -17,21 +17,18 @@ const TodayHeadLineWrapper = styled.div`
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 7fr 1fr 2fr;
   background-color: white;
-  border-radius: 10px;
-  margin: 10px;
+  border-radius: 12px;
 `;
 
 const TodayHeadLineImage = styled.img`
   grid-column: 1 / 3;
   grid-row: 1 / 2;
 
-  width: 470px;
-  height: 230px;
   object-fit: cover;
 
-  border-radius: 10px;
-  margin-top: 15px;
+  border-radius: 12px;
   justify-self: center;
+  align-self: center;
 `;
 
 /**
@@ -53,16 +50,13 @@ const TodayHeadlineTags = styled.div`
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  padding-left: 15px;
 `;
 
 const TodayHeadlineTagsItem = styled.div`
   border: 1px solid black;
   height: 25px;
-  padding: 0 10px;
-  margin-right: 5px;
   background-color: white;
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 500;
   background-color: #fef1f3;
   color: #ff336d;
@@ -77,7 +71,6 @@ const TodayHeadlineLikes = styled.div`
 
   align-self: center;
   justify-self: flex-end;
-  margin-right: 30px;
   font-size: 12px;
   font-weight: 500;
 `;
@@ -85,10 +78,9 @@ const TodayHeadlineLikes = styled.div`
 const TodayHeadlineTitle = styled.div`
   grid-column: 1 / 3;
   grid-row: 3 / 4;
-  padding: 10px;
-  margin-left: 10px;
+  padding: 12px;
 
-  font-size: 20px;
+  font-size: 18px;
 
   &:hover {
     text-decoration: underline;

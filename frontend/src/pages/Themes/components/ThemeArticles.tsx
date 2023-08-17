@@ -30,13 +30,17 @@ const ThemeArticles = () => {
   )[0];
 
   return (
-    <S.themeArticlesContainer>
+    <S.themeArticlesContainer id="theme-articles-container">
       <SectionTitle text={DefaultThemeArticle.theme + " 뉴스"} />
-      <S.themeArticlesList>
+      <S.themeArticlesList id="theme-articles-list">
         {DefaultThemeArticle.articles.map((article) => (
-          <S.themeArticlesItem key={article.id}>
-            <S.themeArticlesItemImage src={article.image} />
+          <S.themeArticlesItem id="theme-articles-item" key={article.id}>
+            <S.themeArticlesItemImage
+              id="theme-articles-item-img"
+              src={article.image}
+            />
             <S.themeArticlesItemTitle
+              id="theme-articles-item-title"
               onClick={() => {
                 navigate(`/article/${article.id}`);
               }}

@@ -5,11 +5,11 @@ import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { selectRecommendation } from "../../redux/selector";
 
-interface RecommendationItem {
-  title: string;
-  id: number;
-  press: string;
-}
+// interface RecommendationItem {
+//   title: string;
+//   id: number;
+//   press: string;
+// }
 
 /**
  * 추천 뉴스 컴포넌트
@@ -22,18 +22,22 @@ const UserRecommendations = () => {
   const navigate = useNavigate();
 
   return (
-    <S.RecommendationContainer>
+    <S.RecommendationContainer id="recommendaiton-container">
       <SectionTitle text={"추천 뉴스"} />
-      <S.RecommendationList>
-        {defaultRecommendations.map((item) => (
+      <S.RecommendationList id="recommendation-list">
+        {defaultRecommendations.map((item, index) => (
           <S.RecommendationButton
-            key={item.id}
+            id="recommendation-button"
+            key={index}
             onClick={() => {
               "/article";
             }}
           >
-            <S.RecommendationPress>{item.press}</S.RecommendationPress>
+            <S.RecommendationPress id="recommendation-press">
+              {item.press}
+            </S.RecommendationPress>
             <S.RecommendationTitle
+              id="recommedation-title"
               onClick={() => {
                 navigate(`/article/${item.id}`);
               }}

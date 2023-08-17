@@ -13,7 +13,6 @@ const defaultCategories: CategoryItem[] = [
   { name: "생활/문화" },
   { name: "세계" },
   { name: "IT/과학" },
-  { name: "test" },
 ];
 
 const Categories = () => {
@@ -27,11 +26,12 @@ const Categories = () => {
   const navigate = useNavigate();
 
   return (
-    <S.CategoriesContainer>
-      <S.CategoriesTitle>Categories</S.CategoriesTitle>
-      <S.CategoriesList>
+    <S.CategoriesContainer id="categories-container">
+      <S.CategoriesTitle id="categories-title">Categories</S.CategoriesTitle>
+      <S.CategoriesList id="category-list">
         {defaultCategories.map((category, index) => (
           <S.CategoriesItemButton
+            id="category-item-button"
             key={index}
             onClick={() => {
               navigate(`/themes/${category.name}`);

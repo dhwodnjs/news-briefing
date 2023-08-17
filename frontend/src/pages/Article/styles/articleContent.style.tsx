@@ -17,8 +17,7 @@ const ArticleWrapper = styled.div`
   grid-template-columns: 1fr;
   grid-template-rows: 1fr 3fr 3fr;
   background-color: white;
-  border-radius: 10px;
-  margin: 10px;
+  border-radius: 12px;
 
   // background-color: red;
 `;
@@ -28,23 +27,17 @@ const ArticleTitle = styled.div`
   grid-row: 1 / 2;
   font-size: 25px;
   align-self: center;
-
-  margin-left: 15px;
-  margin-right: 15px;
 `;
 
 const ArticleImage = styled.img`
-  width: 470px;
-  height: 250px;
   object-fit: cover;
-
+  width: 100%;
+  height: 100%;
   grid-column: 1 / 2;
   grid-row: 2 / 3;
 
-  border-radius: 10px;
-  margin-left: 15px;
-  margin-right: 15px;
-  margin-bottom: 10px;
+  border-radius: 12px;
+
   justify-self: center;
   align-self: center;
 `;
@@ -54,9 +47,6 @@ const ArticleContent = styled.div`
   grid-row: 3 / 4;
 
   font-size: 18px;
-  margin-left: 15px;
-  margin-right: 15px;
-  margin-top: 10px;
 `;
 
 export {

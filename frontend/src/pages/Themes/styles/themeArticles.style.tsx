@@ -6,7 +6,7 @@ const themeArticlesContainer = styled.div`
 
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 40px 1fr;
+  grid-template-rows: 1fr 3fr;
 `;
 
 const themeArticlesList = styled.div`
@@ -14,23 +14,17 @@ const themeArticlesList = styled.div`
   grid-row: 2 / 3;
 
   background-color: white;
-  border-radius: 10px;
-  padding: 10px;
-  margin: 10px;
+  border-radius: 12px;
 `;
 
 const themeArticlesItem = styled.div`
   display: flex;
   flex-direction: row;
 
-  margin-left: 30px;
-  margin-bottom: 25px;
-  margin-top: 25px;
   align-items: center;
 `;
 
 const themeArticlesItemTitle = styled.div`
-  margin-left: 20px;
   font-size: 25px;
 
   &:hover {
@@ -39,9 +33,7 @@ const themeArticlesItemTitle = styled.div`
 `;
 
 const themeArticlesItemImage = styled.img`
-  width: 70px;
-  height: 70px;
-  border-radius: 10px;
+  border-radius: 12px;
 
   color: #ccc;
 `;

@@ -7,7 +7,8 @@ const HeaderContainer = styled.div`
   display: flex;
   padding: 1rem;
 
-  background-color: #f7f8f9;
+  background-color: #efefef;
+  border-radius: 12px 12px 0 0;
   align-items: center;
 `;
 
@@ -16,7 +17,7 @@ const HeaderText = styled.div`
 
   font-size: 20px;
   font-weight: 700;
-  font-family: "Fugaz One";
+  font-family: [ "Fugaz One"];
 `;
 
 export { HeaderContainer, HeaderText };

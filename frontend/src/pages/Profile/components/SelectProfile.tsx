@@ -21,30 +21,39 @@ const SelectProfile = () => {
   const navigate = useNavigate();
 
   return (
-    <S.SelectProfileContainer>
-      <S.SelectProfileText>프로필을 선택하세요</S.SelectProfileText>
-      <S.SelectProfileWrapper>
-        <S.SelectProfileItemList>
+    <S.SelectProfileContainer id="select-profile-container">
+      <S.SelectProfileText id="select-profile-text">
+        프로필을 선택하세요
+      </S.SelectProfileText>
+      <S.SelectProfileWrapper id="select-profile-wrapper">
+        <S.SelectProfileItemList id="select-profile-item-list">
           {DefaultUserList.map((user, key) => (
             <S.SelectProfileItem
               key={key}
               onClick={() => {
                 navigate("/");
               }}
+              id={`select-profile-item-${key}`}
             >
-              <S.SelectProfileItemImage src={user.image} />
-              <S.SelectProfileItemName>{user.name}</S.SelectProfileItemName>
+              <S.SelectProfileItemImage
+                src={user.image}
+                id={`select-profile-item-image-${key}`}
+              />
+              <S.SelectProfileItemName id={`select-profile-item-name-${key}`}>
+                {user.name}
+              </S.SelectProfileItemName>
             </S.SelectProfileItem>
           ))}
         </S.SelectProfileItemList>
       </S.SelectProfileWrapper>
 
-      <S.AddProfileWrapper>
-        <S.AddProfileIcon> + </S.AddProfileIcon>
+      <S.AddProfileWrapper id="add-profile-wrapper">
+        <S.AddProfileIcon id="add-profile-icon"> + </S.AddProfileIcon>
         <S.AddProfileText
           onClick={() => {
             navigate("/customize");
           }}
+          id="add-profile-text"
         >
           {" "}
           프로필 추가{" "}

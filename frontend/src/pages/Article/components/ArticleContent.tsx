@@ -40,12 +40,17 @@ const ArticleContent = () => {
   // }, [audioData]);
 
   return (
-    <S.ArticleContainer>
+    <S.ArticleContainer id="article-container">
       <SectionTitle text="뉴스" />
-      <S.ArticleWrapper>
-        <S.ArticleTitle>{DefaultArticle.title}</S.ArticleTitle>
-        <S.ArticleImage src={DefaultArticle.image} />
-        <S.ArticleContent> {DefaultArticle.content} </S.ArticleContent>
+      <S.ArticleWrapper id="article-wrapper">
+        <S.ArticleTitle id="article-title">
+          {DefaultArticle.title}
+        </S.ArticleTitle>
+        <S.ArticleImage id="article-img" src={DefaultArticle.image} />
+        <S.ArticleContent id="article-content">
+          {" "}
+          {DefaultArticle.content}{" "}
+        </S.ArticleContent>
       </S.ArticleWrapper>
     </S.ArticleContainer>
   );

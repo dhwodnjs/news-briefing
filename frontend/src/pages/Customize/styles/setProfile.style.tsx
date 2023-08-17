@@ -8,8 +8,6 @@ const ProfileContainer = styled.div`
   grid-template-columns: 2.5fr 4fr;
 `;
 const ProfileImage = styled.img`
-  width: 200px;
-  height: 200px;
   border-radius: 50%;
   align-self: center;
   justify-self: center;
@@ -23,33 +21,27 @@ const ProfileNameWrapper = styled.div`
   display: grid;
   grid-template-columns: 1fr 3.5fr;
   grid-template-rows: 1fr;
-  margin: 10px;
 `;
 const ProfileNameText = styled.div`
-  font-size: 20px;
+  font-size: 12px;
   justify-self: right;
   font-weight: bold;
-  margin: 5px;
 `;
 const ProfileNameInput = styled.input`
   font-size: 15px;
-  margin-left: 25px;
-  width: 120px;
 `;
 
 const ProfileThemeWrapper = styled.div`
   display: grid;
   grid-template-columns: 2fr 6fr 1fr;
   grid-template-rows: 1fr;
-  margin: 10px;
 `;
 
 const ProfileThemeText = styled.div`
-  font-size: 20px;
+  font-size: 12px;
   justify-self: right;
-  margin: 5px;
   font-weight: bold;
-  line-height: 40px;
+  line
 `;
 const ProfileThemeItemList = styled.div`
   display: grid;
@@ -57,18 +49,17 @@ const ProfileThemeItemList = styled.div`
 `;
 
 const ProfileThemeItem = styled.div<{ buttonState: boolean }>`
-  width: 70px;
-  height: 40px;
-  margin: 5px;
+  
+
   align-self: center;
   justify-self: center;
   font-size: 15px;
 
-  border-radius: 10px;
+  border-radius: 12px;
   background-color: #f2f2f2;
 
   text-align: center;
-  line-height: 40px;
+  line
 
   cursor: pointer;
   border: none;
@@ -92,31 +83,28 @@ const ProfilePressWrapper = styled.div`
   display: grid;
   grid-template-columns: 2fr 3.5fr 1fr;
   grid-template-rows: 1fr;
-  margin: 10px;
 `;
 const ProfilePressText = styled.div`
-  font-size: 20px;
+  font-size: 12px;
   justify-self: right;
-  margin: 5px;
   font-weight: bold;
-  line-height: 40px;
+  line
 `;
 const ProfilePressItemList = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
 `;
 const ProfilePressItem = styled.div<{ buttonState: boolean }>`
-  width: 80px;
-  height: 40px;
-  margin: 5px;
+  
+
   align-self: center;
   justify-self: center;
   font-size: 15px;
 
-  border-radius: 10px;
+  border-radius: 12px;
 
   text-align: center;
-  line-height: 40px;
+  line
 
   cursor: pointer;
   border: none;

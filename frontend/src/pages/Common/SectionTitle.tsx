@@ -12,8 +12,8 @@ interface SectionTitleProps {
  */
 const SectionTitle = ({ text }: SectionTitleProps) => {
   return (
-    <S.SectionTitleWrapper>
-      <S.SectionTitleText>{text}</S.SectionTitleText>
+    <S.SectionTitleWrapper id="section-title-wrapper">
+      <S.SectionTitleText id="section-title-text">{text}</S.SectionTitleText>
     </S.SectionTitleWrapper>
   );
 };

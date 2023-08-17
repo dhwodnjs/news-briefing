@@ -27,12 +27,9 @@ const SelectProfileItem = styled.div`
   cursor: pointer;
 `;
 const SelectProfileItemName = styled.div`
-  font-size: 20px;
-  margin-top: 10px;
+  font-size: 12px;
 `;
 const SelectProfileItemImage = styled.img`
-  width: 160px;
-  height: 160px;
   border-radius: 50%;
 `;
 
@@ -41,7 +38,6 @@ const AddProfileWrapper = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: right;
-  margin-right: 20px;
 `;
 
 const AddProfileIcon = styled.div`
@@ -54,12 +50,11 @@ const AddProfileIcon = styled.div`
   //   align-items: center;
   justify-content: center;
   line-height: 25px;
-  margin-right: 10px;
   font-size: 30px;
   font-weight: bold;
 `;
 const AddProfileText = styled.div`
-  font-size: 20px;
+  font-size: 12px;
   cursor: pointer;
 
   &:hover {

@@ -22,16 +22,21 @@ const ProfileCircle = () => {
   const navigate = useNavigate();
 
   return (
-    <S.ProfileCircleWrapper>
+    <S.ProfileCircleWrapper id="profile-circle-wrapper">
       <S.ProfileCircleItem
+        id="profile-circle-item"
         onClick={() => {
           navigate("/customize");
         }}
       >
-        <S.ProfileCircleImage src={defaultProfileImage.profileImage} />
+        <S.ProfileCircleImage
+          id="profile-circle-img"
+          src={defaultProfileImage.profileImage}
+        />
         {defaultProfileImage.profileName}
       </S.ProfileCircleItem>
       <S.ProfileChangeButton
+        id="profile-change-button"
         onClick={() => {
           navigate("/profile");
         }}
@@ -39,6 +44,7 @@ const ProfileCircle = () => {
         🤓
       </S.ProfileChangeButton>
       <S.ProfileSettingButton
+        id="profile-setting-button"
         onClick={() => {
           navigate("/customize");
         }}
