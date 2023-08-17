@@ -8,6 +8,13 @@ export interface IArticle {
   press: string;
 }
 
+export interface IHeadline {
+  id: number;
+  title: string;
+  image: string;
+  tags?: string[];
+}
+
 export interface IThemeArticles {
   theme: string;
   articles: IArticle[];

@@ -1,6 +1,7 @@
 import json
 import os
 import random
+import pandas as pd
 from typing import List, Optional
 
 from fastapi import FastAPI
@@ -24,7 +25,8 @@ app.add_middleware(
 )
 
 # when app start, connect to mongodb
-
+colname = ["date", "category_name", "press", "title", "body", "content_url", "image"]
+data = pd.read_csv("crawl\output\Article_IT과학_20230816_20230816.csv", names = colname)
 
 @app.on_event("startup")
 async def startup_db_client():
@@ -40,26 +42,29 @@ async def shutdown_db_client():
 
 @app.get("/api/sample")
 async def sample_news(num: Optional[int] = 1):
-    # Retrieve all documents matching the category
-    matching_news = list(app.mongodb_collection.find().limit(num))
+    # # Retrieve all documents matching the category
+    # matching_news = list(app.mongodb_collection.find().limit(num))
 
-    for news in matching_news:
-        news["_id"] = str(news["_id"])
-    # Sample 4 documents randomly
-    samples = random.sample(matching_news, min(len(matching_news), num))
-    return json.dumps({"news": samples})
+    # for news in matching_news:
+    #     news["_id"] = str(news["_id"])
+    # # Sample 4 documents randomly
+    # samples = random.sample(matching_news, min(len(matching_news), num))
+    # return json.dumps({"news": samples})
+    result = data.sample(n=num).to_dict(orient='records')
+    return json.dumps({"news": result})
 
 
 @app.get("/api/sample/{category_id}")
 async def sample_news(category_id: int, num: Optional[int] = 4):
     # Retrieve all documents matching the category
-    matching_news = list(app.mongodb_collection.find({"category_id": category_id}))
+    # matching_news = list(app.mongodb_collection.find({"category_id": category_id}))
 
-    for news in matching_news:
-        news["_id"] = str(news["_id"])
-    # Sample 4 documents randomly
-    samples = random.sample(matching_news, min(len(matching_news), num))
-    return json.dumps({"news": samples})
+    # for news in matching_news:
+    #     news["_id"] = str(news["_id"])
+    # # Sample 4 documents randomly
+    # samples = random.sample(matching_news, min(len(matching_news), num))
+    result = data.sample(n=num).to_dict(orient='records')
+    return json.dumps({"news": result})
 
 
 # @app.get("/{any}")

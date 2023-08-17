@@ -1,27 +1,23 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { IArticle } from "./interface";
+import { IHeadline, IArticle } from "./interface";
+import { requestHeadline } from "../requests/requestHeadline";
+import { RootState } from "./store";
 
 export const headlineSlice = createSlice({
   name: "headline",
   initialState: {
     status: "idle",
-    article: {} as IArticle, // !
+    article: {} as IHeadline, // !
   },
 
   reducers: {
-    startFetching: (state) => {
-      state.status = "loading";
-    },
-    fetchedSuccessfully: (state, action: PayloadAction<IArticle>) => {
-      state.status = "succeeded";
-      state.article = action.payload;
-    },
-    fetchFailed: (state) => {
-      state.status = "failed";
+    setHeadline: (state, action) => {
+      state.article.id = action.payload.id;
+      state.article.title = action.payload.title;
+      state.article.image = action.payload.image;
     },
   },
 });
 
-export const { startFetching, fetchedSuccessfully, fetchFailed } =
-  headlineSlice.actions;
+export const { setHeadline } = headlineSlice.actions;
 export default headlineSlice.reducer;
