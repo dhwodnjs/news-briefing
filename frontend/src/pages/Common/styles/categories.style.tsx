@@ -12,8 +12,9 @@ const CategoriesContainer = styled.div`
   grid-template-columns: 1fr;
   grid-template-rows: 50px 1fr;
   background-color: white;
-  margin: 10px;
-  border-radius: 10px;
+
+  border-radius: 12px;
+  margin-left: 12px;
 `;
 
 const CategoriesTitle = styled.div`
@@ -22,17 +23,20 @@ const CategoriesTitle = styled.div`
   display: flex;
   align-items: center;
   padding: 1rem;
-  margin: 0;
+
   font-weight: 600;
 `;
 
 const CategoriesList = styled.div`
   grid-column: 1 / 2;
   grid-row: 2 / 3;
+  gap: 12px;
 
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+
+  padding-left: 16px;
 `;
 
 const CategoriesItemButton = styled.div`
@@ -40,8 +44,6 @@ const CategoriesItemButton = styled.div`
   border: none;
   cursor: pointer;
   background-color: white;
-
-  margin: 0.5rem 1rem;
 
   &:hover {
     color: gray;

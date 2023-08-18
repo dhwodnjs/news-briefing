@@ -21,11 +21,11 @@ const Main = () => {
     // dispatch(initThemeArticlesSlice());
   });
   return (
-    <S.MainWindow>
+    <S.MainWindow id="main-window">
       <Header />
       <ProfileCircle />
       <Categories />
-      <S.MainPage>
+      <S.MainPage id="main-container">
         <TodayHeadline />
         <UserRecommendations />
         <ThemeRecommendation theme={"IT"} />

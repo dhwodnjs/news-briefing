@@ -86,31 +86,45 @@ const SetProfile = () => {
   ];
 
   return (
-    <S.ProfileContainer>
-      <S.ProfileImage src={img} />
+    <S.ProfileContainer id="profile-container">
+      <S.ProfileImage id="profile-image" src={img} />
 
-      <S.ProfileWrapper>
-        <S.ProfileNameWrapper>
-          <S.ProfileNameText> 닉네임 </S.ProfileNameText>
-          <S.ProfileNameInput />
+      <S.ProfileWrapper id="profile-wrapper">
+        <S.ProfileNameWrapper id="profile-name-wrapper">
+          <S.ProfileNameText id="profile-name-text"> 닉네임 </S.ProfileNameText>
+          <S.ProfileNameInput id="profile-name-input" />
         </S.ProfileNameWrapper>
 
-        <S.ProfileThemeWrapper>
-          <S.ProfileThemeText> 관심 분야 </S.ProfileThemeText>
-          <S.ProfileThemeItemList>
+        <S.ProfileThemeWrapper id="profile-theme-wrapper">
+          <S.ProfileThemeText id="profile-theme-text">
+            {" "}
+            관심 분야{" "}
+          </S.ProfileThemeText>
+          <S.ProfileThemeItemList id="profile-theme-item-list">
             {defaultTheme.map((theme) => (
-              <S.ProfileThemeItem key={theme.id} buttonState={theme.selected}>
+              <S.ProfileThemeItem
+                id={`profile-theme-item-${theme.id}`}
+                key={theme.id}
+                buttonState={theme.selected}
+              >
                 {theme.name}
               </S.ProfileThemeItem>
             ))}
           </S.ProfileThemeItemList>
         </S.ProfileThemeWrapper>
 
-        <S.ProfilePressWrapper>
-          <S.ProfilePressText> 관심 언론사 </S.ProfilePressText>
-          <S.ProfilePressItemList>
+        <S.ProfilePressWrapper id="profile-press-wrapper">
+          <S.ProfilePressText id="profile-press-text">
+            {" "}
+            관심 언론사{" "}
+          </S.ProfilePressText>
+          <S.ProfilePressItemList id="profile-press-item-list">
             {defaultPress.map((press) => (
-              <S.ProfilePressItem key={press.id} buttonState={press.selected}>
+              <S.ProfilePressItem
+                id={`profile-press-item-${press.id}`}
+                key={press.id}
+                buttonState={press.selected}
+              >
                 {press.name}
               </S.ProfilePressItem>
             ))}

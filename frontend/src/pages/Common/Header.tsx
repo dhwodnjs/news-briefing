@@ -12,8 +12,9 @@ const Header = () => {
   const navigate = useNavigate();
 
   return (
-    <S.HeaderContainer>
+    <S.HeaderContainer id="header-container">
       <S.HeaderText
+        id="header-text"
         onClick={() => {
           navigate(`/`);
         }}

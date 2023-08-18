@@ -19,16 +19,17 @@ const TodayHeadline = () => {
   }, []);
 
   return (
-    <S.TodayHeadLineContainer>
+    <S.TodayHeadLineContainer id="today-headline-container">
       <SectionTitle text={"오늘의 헤드라인"} />
-      <S.TodayHeadLineWrapper>
+      <S.TodayHeadLineWrapper id="today-headline-wrapper">
         <S.TodayHeadLineImage
+          id="today-headline-image"
           src={defaultHeadline.image}
         ></S.TodayHeadLineImage>
-        <S.TodayHeadlineInfo>
-          <S.TodayHeadlineTags>
+        <S.TodayHeadlineInfo id="today-headline-info">
+          <S.TodayHeadlineTags id="today-headline-tags">
             {defaultHeadline.tags?.map((tag, index) => (
-              <S.TodayHeadlineTagsItem key={index}>
+              <S.TodayHeadlineTagsItem key={index} id="today-healine-tag-item">
                 {tag}
               </S.TodayHeadlineTagsItem>
             ))}
@@ -36,6 +37,7 @@ const TodayHeadline = () => {
           {/* <S.TodayHeadlineLikes> {defaultHeadline.likes} </S.TodayHeadlineLikes> */}
         </S.TodayHeadlineInfo>
         <S.TodayHeadlineTitle
+          id="today-headline-title"
           onClick={() => {
             navigate(`/article/${defaultHeadline.id}`);
           }}

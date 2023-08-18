@@ -17,13 +17,19 @@ const ThemeRecommendation = ({ theme }: ThemeRecommendationProps) => {
   const DefaultRec = useSelector(selectThemeRecommendation);
 
   return (
-    <S.ThemeRecommendationContainer>
+    <S.ThemeRecommendationContainer id="theme-recommendation-container">
       <SectionTitle text={theme + " 추천 뉴스"} />
-      <S.ThemeRecommendationWrapper>
+      <S.ThemeRecommendationWrapper id="theme-recommedation-wrapper">
         {DefaultRec.map((rec, index) => (
-          <S.ThemeRecommendationButtonWrapper key={index}>
-            <S.ThemeRecommendationButtonImage src={rec.image} />
-            <S.ThemeRecommendationButtonTitle>
+          <S.ThemeRecommendationButtonWrapper
+            id="theme-recommendation-button-wrapper"
+            key={index}
+          >
+            <S.ThemeRecommendationButtonImage
+              id="theme-button-image"
+              src={rec.image}
+            />
+            <S.ThemeRecommendationButtonTitle id="theme-recommendation-button-title">
               {rec.title}
             </S.ThemeRecommendationButtonTitle>
           </S.ThemeRecommendationButtonWrapper>

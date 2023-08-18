@@ -5,12 +5,15 @@ const ProfileCircleWrapper = styled.div`
   grid-row: 2/3;
 
   background-color: white;
-  border-radius: 10px;
-  margin: 10px;
+  border-radius: 12px;
 
   display: grid;
   grid-template-columns: 3fr 1fr;
   grid-template-rows: 1fr 1fr;
+  gap: 12px;
+  padding-right: 12px;
+
+  margin-left: 12px;
 `;
 
 const ProfileCircleItem = styled.div`
@@ -34,26 +37,28 @@ const ProfileCircleImage = styled.img`
   border: 1px solid #ccc;
   padding: 2px;
 
-  margin-bottom: 5px;
   color: #ccc;
 `;
 
 const ProfileChangeButton = styled.div`
   border-radius: 50%;
-  margin-top: 10px;
   cursor: pointer;
-  width: 20px;
-  height: 20px;
+  width: 12px;
+  height: 12px;
   text-align: center;
+  align-self: flex-end;
+  justify-self: center;
 `;
 const ProfileSettingButton = styled.div`
   border-radius: 50%;
   cursor: pointer;
   cursor: pointer;
-  width: 20px;
-  height: 20px;
+  width: 12px;
+  height: 12px;
   text-align: center;
   line-height: 15px;
+  align-self: flex-start;
+  justify-self: center;
 `;
 
 export {

@@ -5,16 +5,6 @@ import { styled } from "styled-components";
  *
  */
 const MainWindow = styled.div`
-  // @media (min-width: 650px) {
-  //   width: 70vw;
-  //   height: 90vh;
-  // }
-
-  // @media (max-width: 1000px) {
-  //   width: 700px;
-  //   height: 90vh;
-  // }
-
   @media (min-width: 650px) {
     width: 900px;
     height: 90vh;
@@ -25,16 +15,17 @@ const MainWindow = styled.div`
     height: 90vh;
   }
 
-  margin: 0 auto;
-
   display: grid;
 
   grid-template-columns: 130px 1fr;
   grid-template-rows: 50px 1fr 5fr;
 
-  background-color: #f7f8f9;
+  margin: 5vh auto 5vh auto;
+  background-color: #efefef;
+  border-radius: 12px;
 
-  margin-top: 30px;
+  gap: 12px;
+  padding-bottom: 12px;
 `;
 
 /**
@@ -47,6 +38,9 @@ const MainPage = styled.div`
   display: grid;
   grid-template-columns: 2fr 1fr;
   grid-template-rows: 2fr 1fr;
+
+  gap: 12px;
+  padding-right: 12px;
 `;
 
 export { MainWindow, MainPage };

@@ -9,8 +9,7 @@ const RecommendationContainer = styled.div`
 const RecommendationList = styled.div`
   display: grid;
   background-color: white;
-  border-radius: 10px;
-  margin: 10px;
+  border-radius: 12px;
 `;
 
 /**
@@ -18,7 +17,7 @@ const RecommendationList = styled.div`
  * So I set as div not button
  */
 const RecommendationButton = styled.div`
-  padding: 10px;
+  padding: 12px;
 `;
 
 const RecommendationPress = styled.div`
