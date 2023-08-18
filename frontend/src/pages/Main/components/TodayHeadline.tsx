@@ -20,7 +20,7 @@ const TodayHeadline = () => {
 
   return (
     <S.TodayHeadLineContainer>
-      <SectionTitle text={"오늘의 헤드dd라인"} />
+      <SectionTitle text={"오늘의 헤드라인"} />
       <S.TodayHeadLineWrapper>
         <S.TodayHeadLineImage
           src={defaultHeadline.image}

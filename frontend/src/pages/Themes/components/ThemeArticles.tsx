@@ -1,39 +1,47 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import SectionTitle from "../../Common/SectionTitle";
 import * as S from "../../styles";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { selectThemeArticles } from "../../../redux/selector";
-
-interface ThemeArticlesProps {
-  theme: string;
-  articles: Array<{
-    id: number;
-    title: string;
-    image: string;
-  }>;
-}
+// import { loadThemeArticles } from "../feature/handleThemes";
+import { loadThemeArticles } from "../feature/handleThemes";
+import { loadHeadline } from "../../Main/feature/handleHeadline";
 
 const ThemeArticles = () => {
   const DefaultThemeArticles = useSelector(selectThemeArticles);
   const params = useParams();
-  console.log(params);
-  const theme = params.theme;
+
+  // const theme = categories[parseInt(params)]; //parseInt(params.theme);ㅜ,ㅜ
+
+  const categories = [
+    "IT과학",
+    "경제",
+    "사회",
+    "생활문화",
+    "세계",
+    "오피니언",
+    "정치",
+  ];
+  const theme_id = 3; // 일단..
+  const theme = categories[theme_id];
+
+  const dispatch = useDispatch();
 
   const navigate = useNavigate();
-  // console.log(theme);
-  // console.log(DefaultThemeArticles);
-  // DefaultThemeArticles.map((article) => console.log(article.theme === ));
 
-  const DefaultThemeArticle = DefaultThemeArticles.filter(
-    (article) => article.theme === theme,
-  )[0];
+  // theme에 해당하는 뉴스 가져와서, theme에 저장 (set)
+
+  useEffect(() => {
+    loadThemeArticles(theme_id, dispatch);
+    // loadHeadline(dispatch);
+  }, []);
 
   return (
     <S.themeArticlesContainer>
-      <SectionTitle text={DefaultThemeArticle.theme + " 뉴스"} />
+      <SectionTitle text={theme + " 뉴스"} />
       <S.themeArticlesList>
-        {DefaultThemeArticle.articles.map((article) => (
+        {DefaultThemeArticles.map((article) => (
           <S.themeArticlesItem key={article.id}>
             <S.themeArticlesItemImage src={article.image} />
             <S.themeArticlesItemTitle

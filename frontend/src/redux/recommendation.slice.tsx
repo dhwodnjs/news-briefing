@@ -1,17 +1,24 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { IArticle, DArticle } from "./interface";
+import { IArticle, DArticle, IHeadline } from "./interface";
 
 export const recommendationSlice = createSlice({
   name: "recommendation",
   initialState: {
-    articles: [] as IArticle[],
+    articles: [] as IHeadline[],
   },
   reducers: {
-    initRecommendationSlice: (state) => {
-      state.articles = [DArticle, DArticle, DArticle, DArticle, DArticle];
+    setRecommendation: (state, action) => {
+      action.payload.map((article: any) => {
+        state.articles.push({
+          id: article.id,
+          title: article.title,
+          image: article.image,
+          press: article.press,
+        });
+      });
     },
   },
 });
 
-export const { initRecommendationSlice } = recommendationSlice.actions;
+export const { setRecommendation } = recommendationSlice.actions;
 export default recommendationSlice.reducer;

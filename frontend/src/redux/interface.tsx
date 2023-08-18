@@ -13,6 +13,7 @@ export interface IHeadline {
   title: string;
   image: string;
   tags?: string[];
+  press?: string;
 }
 
 export interface IThemeArticles {

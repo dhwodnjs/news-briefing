@@ -7,13 +7,13 @@ interface CategoryItem {
 }
 
 const defaultCategories: CategoryItem[] = [
-  { name: "정치" },
+  { name: "IT과학" },
   { name: "경제" },
   { name: "사회" },
-  { name: "생활/문화" },
+  { name: "생활문화" },
   { name: "세계" },
-  { name: "IT/과학" },
-  { name: "test" },
+  { name: "오피니언" },
+  { name: "정치" },
 ];
 
 const Categories = () => {
@@ -34,7 +34,7 @@ const Categories = () => {
           <S.CategoriesItemButton
             key={index}
             onClick={() => {
-              navigate(`/themes/${category.name}`);
+              navigate(`/themes/${index}`);
             }}
           >
             {category.name}

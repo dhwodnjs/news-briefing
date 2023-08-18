@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 import * as S from "../styles";
 import SectionTitle from "./SectionTitle";
 import { useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { selectRecommendation } from "../../redux/selector";
+import { loadUserRecommendation } from "./feature/handleUserRecommendation";
 
 interface RecommendationItem {
   title: string;
@@ -17,7 +18,12 @@ interface RecommendationItem {
  * @returns 추천 뉴스 컴포넌트
  */
 const UserRecommendations = () => {
+  const dispatch = useDispatch();
   const defaultRecommendations = useSelector(selectRecommendation);
+
+  useEffect(() => {
+    loadUserRecommendation(dispatch);
+  }, []);
 
   const navigate = useNavigate();
 
