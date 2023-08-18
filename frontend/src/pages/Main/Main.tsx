@@ -8,6 +8,7 @@ import Brief from "../Common/Brief";
 import UserRecommendations from "../Common/UserRecommendations";
 import ProfileCircle from "../Common/ProfileCircle";
 import { useDispatch } from "react-redux";
+import SideBar from "../Common/SideBar";
 // import { initRecommendationSlice } from "../../redux/recommendation.slice";
 // import { initThemeRecommendationSlice } from "../../redux/themeRecommendation.slice";
 // import { initThemeArticlesSlice } from "../../redux/themeArticles.slice";
@@ -23,12 +24,11 @@ const Main = () => {
   return (
     <S.MainWindow id="main-window">
       <Header />
-      <ProfileCircle />
-      <Categories />
+      <SideBar />
       <S.MainPage id="main-container">
         <TodayHeadline />
         <UserRecommendations />
-        <ThemeRecommendation theme={"IT"} />
+        <ThemeRecommendation theme={"IT과학"} />
         <Brief />
       </S.MainPage>
     </S.MainWindow>

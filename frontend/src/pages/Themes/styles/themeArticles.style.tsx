@@ -1,12 +1,15 @@
 import { styled } from "styled-components";
 
 const themeArticlesContainer = styled.div`
-  grid-column: 2 / 3;
-  grid-row: 2 / 4;
-
   display: grid;
+
+  grid-column: 2/3;
+  grid-row: 2/4;
   grid-template-columns: 1fr;
-  grid-template-rows: 1fr 3fr;
+  grid-template-rows: 1fr 5fr;
+
+  gap: 12px;
+  margin-right: 12px;
 `;
 
 const themeArticlesList = styled.div`
@@ -36,6 +39,8 @@ const themeArticlesItemImage = styled.img`
   border-radius: 12px;
 
   color: #ccc;
+
+  width: 50px; // !!!
 `;
 
 export {

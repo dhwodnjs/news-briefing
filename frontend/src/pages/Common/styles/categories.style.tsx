@@ -6,7 +6,6 @@ import { styled } from "styled-components";
  */
 const CategoriesContainer = styled.div`
   grid-column: 1 / 2;
-  grid-row: 3 / 4;
 
   display: grid;
   grid-template-columns: 1fr;

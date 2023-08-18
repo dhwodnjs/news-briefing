@@ -37,7 +37,7 @@ const MainPage = styled.div`
 
   display: grid;
   grid-template-columns: 2fr 1fr;
-  grid-template-rows: 2fr 1fr;
+  grid-template-rows: minmax(0, 2fr) minmax(0, 1fr);
 
   gap: 12px;
   padding-right: 12px;

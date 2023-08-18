@@ -5,9 +5,7 @@ const ThemeRecommendationContainer = styled.div`
   grid-row: 2 / 3;
 
   display: grid;
-  gap: 12px;
-  // grid-template-columns: 1fr;
-  // grid-template-rows: 1fr 3fr;
+  grid-template-rows: minmax(0, 40px) minmax(0, 1fr);
 `;
 
 const ThemeRecommendationWrapper = styled.div`
@@ -21,6 +19,8 @@ const ThemeRecommendationWrapper = styled.div`
 
   align-items: center;
   justify-content: center;
+
+  overflow: hidden;
 `;
 
 const ThemeRecommendationButtonWrapper = styled.div`
@@ -29,16 +29,21 @@ const ThemeRecommendationButtonWrapper = styled.div`
 
   display: flex;
   position: relative;
+  overflow: hidden;
 
-  // align-items: center;
-  // justify-content: center;
-`;
-const ThemeRecommendationButtonImage = styled.img`
+  background-color: white;
   width: 100%;
   height: 100%;
+`;
+const ThemeRecommendationButtonImage = styled.img`
   flex-shrink: 0;
   object-fit: cover;
   border-radius: 12px;
+
+  width: 100%;
+  height: 100%;
+
+  filter: brightness(50%);
 `;
 const ThemeRecommendationButtonTitle = styled.div`
   position: absolute;
@@ -47,7 +52,8 @@ const ThemeRecommendationButtonTitle = styled.div`
   transform: translate(-50%, -50%);
   color: white;
   font-weight: bold;
-  font-size: 25px;
+  font-size: 18px;
+  width: 80%;
 `;
 
 export {

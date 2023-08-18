@@ -2,7 +2,7 @@ import { styled } from "styled-components";
 
 const ProfileCircleWrapper = styled.div`
   grid-column: 1/2;
-  grid-row: 2/3;
+  // grid-row: 2/3;
 
   background-color: white;
   border-radius: 12px;
