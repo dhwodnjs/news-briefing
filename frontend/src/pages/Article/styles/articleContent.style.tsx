@@ -15,7 +15,6 @@ const ArticleWrapper = styled.div`
 
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 1fr 3fr 3fr;
   background-color: white;
   border-radius: 12px;
 

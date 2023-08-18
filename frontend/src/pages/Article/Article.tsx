@@ -10,11 +10,11 @@ import * as S from "../styles";
 
 const Article = () => {
   return (
-    <S.MainWindow>
+    <S.MainWindow id="main-window">
       <Header />
       <ProfileCircle />
       <Categories />
-      <S.ArticlePage>
+      <S.ArticlePage id="article-page">
         <ArticleContent />
         <UserRecommendations />
         <Brief />
