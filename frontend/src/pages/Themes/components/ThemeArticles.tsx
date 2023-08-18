@@ -39,9 +39,9 @@ const ThemeArticles = () => {
 
   return (
     <S.themeArticlesContainer id="theme-articles-container">
-      <SectionTitle text={DefaultThemeArticle.theme + " 뉴스"} />
+      <SectionTitle text={theme + " 뉴스"} />
       <S.themeArticlesList id="theme-articles-list">
-        {DefaultThemeArticle.articles.map((article) => (
+        {DefaultThemeArticles.map((article) => (
           <S.themeArticlesItem id="theme-articles-item" key={article.id}>
             <S.themeArticlesItemImage
               id="theme-articles-item-img"
