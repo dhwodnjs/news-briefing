@@ -1,20 +1,26 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { IArticle, DArticle } from "./interface";
+import { IArticle, DArticle, IHeadline } from "./interface";
 
 export const themeRecommendationSlice = createSlice({
   name: "themeRecommendation",
   initialState: {
-    articles: [] as IArticle[],
+    articles: [] as IHeadline[],
     theme: "",
   },
   reducers: {
-    initThemeRecommendationSlice: (state) => {
-      state.articles = [DArticle, DArticle];
-      state.theme = "경제";
+    setThemeRecommendation: (state, action) => {
+      state.articles = [];
+      action.payload.map((article: any) => {
+        state.articles.push({
+          id: article.id,
+          title: article.title,
+          image: article.image,
+          press: article.press,
+        });
+      });
     },
   },
 });
 
-export const { initThemeRecommendationSlice } =
-  themeRecommendationSlice.actions;
+export const { setThemeRecommendation } = themeRecommendationSlice.actions;
 export default themeRecommendationSlice.reducer;

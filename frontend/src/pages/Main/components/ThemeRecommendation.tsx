@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 import * as S from "../../styles";
 import SectionTitle from "../../Common/SectionTitle";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { selectThemeRecommendation } from "../../../redux/selector";
+import { loadThemeRecommendation } from "../feature/handleThemeRecommendation";
+import { useNavigate } from "react-router-dom";
 
 interface ThemeRecommendationProps {
   theme: string;
@@ -13,8 +15,29 @@ interface ThemeRecommendationProps {
  * For example in figma, middle bottom IT추천뉴스 component.
  * You need to specify button component.
  */
+
 const ThemeRecommendation = ({ theme }: ThemeRecommendationProps) => {
   const DefaultRec = useSelector(selectThemeRecommendation);
+
+  const dispatch = useDispatch();
+
+  const categories = [
+    "IT과학",
+    "경제",
+    "사회",
+    "생활문화",
+    "세계",
+    "오피니언",
+    "정치",
+  ];
+
+  const theme_id = categories.indexOf(theme);
+
+  useEffect(() => {
+    loadThemeRecommendation(theme_id, dispatch);
+  }, []);
+
+  const navigate = useNavigate();
 
   return (
     <S.ThemeRecommendationContainer id="theme-recommendation-container">

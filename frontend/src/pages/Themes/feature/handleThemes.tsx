@@ -16,7 +16,6 @@ export const loadThemeArticles = (
   };
 
   getThemes().then((news) => {
-    console.log(news);
     dispatch(setThemeArticles(news));
   });
 };

@@ -13,7 +13,6 @@ export const loadUserRecommendation = (
   };
 
   getUserRecommendation().then((news) => {
-    console.log(news);
     dispatch(setRecommendation(news));
   });
 };
