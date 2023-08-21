@@ -6,7 +6,9 @@ const TodayHeadLineContainer = styled.div`
 
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 40px 1fr;
+  grid-template-rows: minmax(0, 40px) minmax(0, 1fr);
+
+  overflow: hidden;
 `;
 
 const TodayHeadLineWrapper = styled.div`
@@ -15,20 +17,33 @@ const TodayHeadLineWrapper = styled.div`
 
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 7fr 1fr 2fr;
+  grid-template-rows: minmax(50px, 7fr) minmax(0px, 0.5fr) minmax(50px, 1fr);
   background-color: white;
   border-radius: 12px;
 `;
 
-const TodayHeadLineImage = styled.img`
+const TodayHeadlineImageWrapper = styled.div`
+  position: relative;
+  overflow: hidden;
   grid-column: 1 / 3;
-  grid-row: 1 / 2;
-
-  object-fit: cover;
-
   border-radius: 12px;
+  margin: 10px;
+`;
+
+const TodayHeadLineImage = styled.img`
   justify-self: center;
   align-self: center;
+
+  object-fit: contain;
+  overflow: hidden;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  min-width: 100%;
+  min-height: 100%;
+  max-width: 100%; /* Override any existing max-width */
 `;
 
 /**
@@ -81,7 +96,7 @@ const TodayHeadlineTitle = styled.div`
   padding: 12px;
 
   font-size: 18px;
-
+  white-space: nowrap;
   &:hover {
     text-decoration: underline;
   }
@@ -90,6 +105,7 @@ const TodayHeadlineTitle = styled.div`
 export {
   TodayHeadLineContainer,
   TodayHeadLineWrapper,
+  TodayHeadlineImageWrapper,
   TodayHeadLineImage,
   TodayHeadlineInfo,
   TodayHeadlineTags,

@@ -8,6 +8,7 @@ export const recommendationSlice = createSlice({
   },
   reducers: {
     setRecommendation: (state, action) => {
+      state.articles = [];
       action.payload.map((article: any) => {
         state.articles.push({
           id: article.id,

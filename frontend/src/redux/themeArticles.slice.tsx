@@ -13,6 +13,7 @@ export const themeArticlesSlice = createSlice({
   },
   reducers: {
     setThemeArticles: (state, action) => {
+      state.themeArticles = [];
       action.payload.map((article: any) => {
         state.themeArticles.push({
           id: article.id,

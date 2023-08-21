@@ -1,8 +1,8 @@
-export const requestTheme = async (category_id: number) => {
+export const requestArticle = async (article_id: number) => {
+  // const response = await fetch("/api/sample", {
   const response = await fetch(
-    `http://172.30.1.4:8000/api/sample/${category_id}?num=5`,
+    `http://172.30.1.40:8000/article/api/${article_id}`,
     {
-      // const response = await fetch(`/api/sample`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",

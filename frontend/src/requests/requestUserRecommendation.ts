@@ -1,5 +1,5 @@
 export const requestUserRecommendation = async () => {
-  const response = await fetch(`/api/sample`, {
+  const response = await fetch(`http://172.30.1.4:8000/api/sample?num=4`, {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
@@ -9,8 +9,6 @@ export const requestUserRecommendation = async () => {
   if (!response.ok) {
     throw new Error(`HTTP error! status: ${response.status}`);
   }
-
-  console.log(response);
 
   return response.json();
 };

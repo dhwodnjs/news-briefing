@@ -8,8 +8,13 @@ const RecommendationContainer = styled.div`
 
 const RecommendationList = styled.div`
   display: grid;
+  grid-template-rows: repeat(4, minmax(0, 1fr));
   background-color: white;
   border-radius: 12px;
+  overflow: scroll;
+  &::-webkit-scrollbar {
+    display: none;
+  }
 `;
 
 /**
@@ -17,7 +22,9 @@ const RecommendationList = styled.div`
  * So I set as div not button
  */
 const RecommendationButton = styled.div`
+  white-space: nowrap;
   padding: 12px;
+  overflow: hidden;
 `;
 
 const RecommendationPress = styled.div`
@@ -26,6 +33,8 @@ const RecommendationPress = styled.div`
 
 const RecommendationTitle = styled.div`
   font-size: 15px;
+  overflow: hidden;
+  padding-right: 12px;
 
   &:hover {
     text-decoration: underline;

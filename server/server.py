@@ -1,13 +1,14 @@
 import json
 import random
 import pandas as pd
+import warnings
 from typing import List, Optional
+
 
 from fastapi import FastAPI, Path, Response
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse, RedirectResponse
 from fastapi.staticfiles import StaticFiles
-
 from pymongo import MongoClient
 
 from utils.schemas import Text
@@ -36,7 +37,7 @@ data = pd.DataFrame(columns = colname)
 categories = ["IT과학", "경제", "사회", "생활문화", "세계", "오피니언", "정치"]
 for c in categories:
     data = data.append(pd.read_csv(f"crawl\output\Article_{c}_20230816_20230816.csv", names = colname))
-
+data = data.reset_index(drop = True).reset_index().rename(columns={"index": "id"})
 
 @app.on_event("startup")
 async def startup_db_client():
@@ -76,10 +77,20 @@ async def sample_news(category_id: int, num: Optional[int] = 1):
     result = data_sample.sample(n=num).to_dict(orient='records')
     return json.dumps({"news": result})
 
-@app.get("/themes/api/sample/{category_id}")
-async def sample_news(category_id: int, num: Optional[int] = 1):
-   return RedirectResponse(f"/api/sample/{category_id}?num={num}", status_code=302)
+# @app.get("/themes/api/sample/{category_id}")
+# async def sample_news(category_id: int, num: Optional[int] = 1):
+#    return RedirectResponse(f"/api/sample/{category_id}?num={num}", status_code=302)
 
+@app.get("/article/api/{article_id}")
+async def get_article(article_id: int):
+    data_sample = data[data["id"] == article_id]
+    result = data_sample.to_dict(orient='records')
+    return json.dumps({"news": result})
+
+@app.post("/api/summary")
+async def summary(text: Text):
+    response = get_summary(text.text)
+    return {"result": response}
 
 @app.get("/api/test")
 async def test():
@@ -92,6 +103,8 @@ async def audio(text: Text):
     response = get_tts(text.text)
     audio_content = response.content
     return Response(content=audio_content, media_type="audio/mpeg")
+
+
 
 
 # @app.get("/{any}")

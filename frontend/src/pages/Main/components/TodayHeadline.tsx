@@ -22,10 +22,12 @@ const TodayHeadline = () => {
     <S.TodayHeadLineContainer id="today-headline-container">
       <SectionTitle text={"오늘의 헤드라인"} />
       <S.TodayHeadLineWrapper id="today-headline-wrapper">
-        <S.TodayHeadLineImage
-          id="today-headline-image"
-          src={defaultHeadline.image}
-        ></S.TodayHeadLineImage>
+        <S.TodayHeadlineImageWrapper id="today-headline-image-wrapper">
+          <S.TodayHeadLineImage
+            id="today-headline-image"
+            src={defaultHeadline.image}
+          />
+        </S.TodayHeadlineImageWrapper>
         <S.TodayHeadlineInfo id="today-headline-info">
           <S.TodayHeadlineTags id="today-headline-tags">
             {defaultHeadline.tags?.map((tag, index) => (

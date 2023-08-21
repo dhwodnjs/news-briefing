@@ -10,9 +10,7 @@ import { loadHeadline } from "../../Main/feature/handleHeadline";
 
 const ThemeArticles = () => {
   const DefaultThemeArticles = useSelector(selectThemeArticles);
-  const params = useParams();
-
-  // const theme = categories[parseInt(params)]; //parseInt(params.theme);ㅜ,ㅜ
+  const param = useParams().theme as string;
 
   const categories = [
     "IT과학",
@@ -23,19 +21,17 @@ const ThemeArticles = () => {
     "오피니언",
     "정치",
   ];
-  const theme_id = 3; // 일단..
+
+  const theme_id = parseInt(param);
   const theme = categories[theme_id];
 
   const dispatch = useDispatch();
 
   const navigate = useNavigate();
 
-  // theme에 해당하는 뉴스 가져와서, theme에 저장 (set)
-
   useEffect(() => {
     loadThemeArticles(theme_id, dispatch);
-    // loadHeadline(dispatch);
-  }, []);
+  }, [theme_id]);
 
   return (
     <S.themeArticlesContainer id="theme-articles-container">
