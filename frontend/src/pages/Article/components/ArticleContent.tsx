@@ -62,7 +62,9 @@ const ArticleContent = () => {
       <SectionTitle text="뉴스" />
       <S.ArticleWrapper id="article-wrapper">
         <S.ArticleTitle id="article-title">{article.title}</S.ArticleTitle>
-        <S.ArticleImage id="article-img" src={article.image} />
+        <S.ArticleImageWrapper id="article-image-wrapper">
+          <S.ArticleImage id="article-img" src={article.image} />
+        </S.ArticleImageWrapper>
         <S.ArticleContent id="article-content">
           {" "}
           {article.content}{" "}

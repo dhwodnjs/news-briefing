@@ -8,7 +8,7 @@ import { styled } from "styled-components";
 const SectionTitleWrapper = styled.div`
   grid-column: 1 / 2;
   grid-row: 1 / 2;
-  padding: 0 1rem;
+  padding: 0 0.5rem;
 
   align-self: center;
 `;

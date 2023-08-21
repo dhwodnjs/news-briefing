@@ -1,6 +1,6 @@
 import { styled } from "styled-components";
 
-const ProfileCircleWrapper = styled.div`
+const MainProfileCircleWrapper = styled.div`
   grid-column: 1/2;
   // grid-row: 2/3;
 
@@ -14,6 +14,16 @@ const ProfileCircleWrapper = styled.div`
   padding-right: 12px;
 
   margin-left: 12px;
+`;
+
+const ProfileCircleWrapper = styled.div`
+  display: flex;
+  width: 100%;
+  padding-top: 55%;
+  padding-bottom: 55%;
+  margin-left: 20px;
+
+  justify-self: flex-end; /* Aligns content to the right */
 `;
 
 const ProfileCircleItem = styled.div`
@@ -32,7 +42,6 @@ const ProfileCircleItem = styled.div`
 const ProfileCircleImage = styled.img`
   width: 40px;
   height: 40px;
-  border-radius: 50%;
 
   border: 1px solid #ccc;
   padding: 2px;
@@ -62,6 +71,7 @@ const ProfileSettingButton = styled.div`
 `;
 
 export {
+  MainProfileCircleWrapper,
   ProfileCircleItem,
   ProfileCircleWrapper,
   ProfileCircleImage,

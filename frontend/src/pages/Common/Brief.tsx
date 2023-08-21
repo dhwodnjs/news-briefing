@@ -24,7 +24,7 @@ const Brief = () => {
       <SectionTitle text="뉴스 브리핑" />
       <S.BriefWrapper id="brief-wrapper">
         <S.BriefButton id="brief-button-user">맞춤 브리핑</S.BriefButton>
-        <S.BriefButton id="brief-button-theme">테마별 브리핑</S.BriefButton>
+        <S.BriefButton id="brief-button-theme">테마 브리핑</S.BriefButton>
       </S.BriefWrapper>
     </S.BriefContainer>
   );

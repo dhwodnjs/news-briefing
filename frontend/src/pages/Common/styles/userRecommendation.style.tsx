@@ -24,7 +24,20 @@ const RecommendationList = styled.div`
 const RecommendationButton = styled.div`
   white-space: nowrap;
   padding: 12px;
+  padding-right: 16px;
   overflow: hidden;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  &:not(:last-child)::after {
+    content: "";
+    border-bottom: 1.5px solid #e5e5e5;
+    bottom: -38%;
+    position: relative;
+    background-color: #e5e5e5;
+  }
 `;
 
 const RecommendationPress = styled.div`
@@ -32,7 +45,7 @@ const RecommendationPress = styled.div`
 `;
 
 const RecommendationTitle = styled.div`
-  font-size: 15px;
+  font-size: 18px;
   overflow: hidden;
   padding-right: 12px;
 

@@ -35,10 +35,12 @@ const SelectProfile = () => {
               }}
               id={`select-profile-item-${key}`}
             >
-              <S.SelectProfileItemImage
-                src={user.image}
-                id={`select-profile-item-image-${key}`}
-              />
+              <S.SelectProfileItemImageWrapper id="select-profile-item-image-wrapper">
+                <S.SelectProfileItemImage
+                  src={user.image}
+                  id={`select-profile-item-image-${key}`}
+                />
+              </S.SelectProfileItemImageWrapper>
               <S.SelectProfileItemName id={`select-profile-item-name-${key}`}>
                 {user.name}
               </S.SelectProfileItemName>

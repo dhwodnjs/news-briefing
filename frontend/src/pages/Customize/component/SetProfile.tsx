@@ -87,14 +87,14 @@ const SetProfile = () => {
 
   return (
     <S.ProfileContainer id="profile-container">
-      <S.ProfileImage id="profile-image" src={img} />
-
+      <S.ProfileCircleWrapper id="profile-circle-wrapper">
+        <S.ProfileImage id="profile-image" src={img} />
+      </S.ProfileCircleWrapper>
       <S.ProfileWrapper id="profile-wrapper">
         <S.ProfileNameWrapper id="profile-name-wrapper">
           <S.ProfileNameText id="profile-name-text"> 닉네임 </S.ProfileNameText>
           <S.ProfileNameInput id="profile-name-input" />
         </S.ProfileNameWrapper>
-
         <S.ProfileThemeWrapper id="profile-theme-wrapper">
           <S.ProfileThemeText id="profile-theme-text">
             {" "}

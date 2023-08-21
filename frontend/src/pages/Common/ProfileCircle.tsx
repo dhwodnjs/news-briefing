@@ -22,7 +22,7 @@ const ProfileCircle = () => {
   const navigate = useNavigate();
 
   return (
-    <S.ProfileCircleWrapper id="profile-circle-wrapper">
+    <S.MainProfileCircleWrapper id="profile-circle-wrapper">
       <S.ProfileCircleItem
         id="profile-circle-item"
         onClick={() => {
@@ -51,7 +51,7 @@ const ProfileCircle = () => {
       >
         ⚙️
       </S.ProfileSettingButton>
-    </S.ProfileCircleWrapper>
+    </S.MainProfileCircleWrapper>
   );
 };
 
