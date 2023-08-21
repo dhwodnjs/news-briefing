@@ -54,6 +54,10 @@ const ThemeRecommendationButtonTitle = styled.div`
   font-weight: bold;
   font-size: 18px;
   width: 80%;
+
+  &:hover {
+    text-decoration: underline;
+  }
 `;
 
 export {

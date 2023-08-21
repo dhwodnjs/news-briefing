@@ -11,10 +11,9 @@ export const loadHeadline = (dispatch: ReturnType<typeof useDispatch>) => {
   };
 
   getNews().then((news) => {
-    console.log(news);
     dispatch(
       setHeadline({
-        id: news[0]._id,
+        id: news[0].id,
         title: news[0].title,
         image: news[0].image,
         // id: "123445",

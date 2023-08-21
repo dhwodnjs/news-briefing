@@ -3,6 +3,10 @@ import * as S from "../../styles";
 import { playAudio } from "../../../features/audio/playAudio";
 import { requestAudio } from "../../../requests/requestAudio";
 import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import { loadArticle, summarizeArticle } from "../feature/handleArticle";
+import { useDispatch, useSelector } from "react-redux";
+import { selectArticle } from "../../../redux/selector";
 
 interface ArticleContentProps {
   title: string;
@@ -11,26 +15,40 @@ interface ArticleContentProps {
 }
 
 const ArticleContent = () => {
-  // id 받아와서, 해당 id에 맞는 article 불러와야 함 ..
   const [audioData, setAudioData] = useState<ArrayBuffer | null>(null);
 
-  const DefaultArticle: ArticleContentProps = {
-    title: "[경향신문] KT “한화, 하나도 안 무섭다”",
-    image: process.env.PUBLIC_URL + `/image/image1.jpg`,
-    content:
-      "KT는 9일 수원 KT위즈파크에서 열린 한화전에서 13안타 4볼넷을 엮어 12-6으로 이겼다. 1-5로 뒤진 4회 3점, 5회 6점, 7회 2점을 뽑는 매서운 타격으로 뒤집었다. ",
-  };
+  const article = useSelector(selectArticle);
+  const param = useParams().id as string;
+  const article_id = parseInt(param);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    loadArticle(article_id, dispatch);
+  }, [article_id]);
+
+  // 일단 보류
+  // useEffect(() => {
+  //   if (article.content) {
+  //     summarizeArticle(article.content, dispatch);
+  //   }
+  // }, [article.content]);
+
+  // ------------------------------
+
+  // article.content 반영이 한 템포 늦는 것 같음.
+  // react 공부 .. .합시다..^^
 
   // useEffect(() => {
-  //   const fetchData = async () => {
-  //     const data = await requestAudio(
-  //       "KT는 9일 수원 KT위즈파크에서 열린 한화전에서 13안타 4볼넷을 엮어 12-6으로 이겼다. 1-5로 뒤진 4회 3점, 5회 6점, 7회 2점을 뽑는 매서운 타격으로 뒤집었다.",
-  //     );
-  //     setAudioData(data);
-  //   };
+  //   if (article.content) {
+  //     const fetchData = async () => {
+  //       console.log(article.content);
+  //       const data = await requestAudio(article.content);
+  //       setAudioData(data);
+  //     };
 
-  //   fetchData();
-  // }, []);
+  //     fetchData();
+  //   }
+  // }, [article_id]);
 
   // useEffect(() => {
   //   if (audioData) {
@@ -43,13 +61,11 @@ const ArticleContent = () => {
     <S.ArticleContainer id="article-container">
       <SectionTitle text="뉴스" />
       <S.ArticleWrapper id="article-wrapper">
-        <S.ArticleTitle id="article-title">
-          {DefaultArticle.title}
-        </S.ArticleTitle>
-        <S.ArticleImage id="article-img" src={DefaultArticle.image} />
+        <S.ArticleTitle id="article-title">{article.title}</S.ArticleTitle>
+        <S.ArticleImage id="article-img" src={article.image} />
         <S.ArticleContent id="article-content">
           {" "}
-          {DefaultArticle.content}{" "}
+          {article.content}{" "}
         </S.ArticleContent>
       </S.ArticleWrapper>
     </S.ArticleContainer>

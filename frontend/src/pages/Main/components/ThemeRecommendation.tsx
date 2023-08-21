@@ -52,7 +52,12 @@ const ThemeRecommendation = ({ theme }: ThemeRecommendationProps) => {
               id="theme-button-image"
               src={rec.image}
             />
-            <S.ThemeRecommendationButtonTitle id="theme-recommendation-button-title">
+            <S.ThemeRecommendationButtonTitle
+              id="theme-recommendation-button-title"
+              onClick={() => {
+                navigate(`/article/${rec.id}`);
+              }}
+            >
               {rec.title}
             </S.ThemeRecommendationButtonTitle>
           </S.ThemeRecommendationButtonWrapper>

@@ -11,9 +11,12 @@ const selectThemeRecommendation = (state: RootState) =>
 const selectThemeArticles = (state: RootState) =>
   state.themeArticles.themeArticles;
 
+const selectArticle = (state: RootState) => state.article.article;
+
 export {
   selectHeadline,
   selectRecommendation,
   selectThemeRecommendation,
   selectThemeArticles,
+  selectArticle,
 };
