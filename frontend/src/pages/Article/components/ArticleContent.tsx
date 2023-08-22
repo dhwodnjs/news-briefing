@@ -42,14 +42,15 @@ const ArticleContent = () => {
       setAudioData(data);
     };
     fetchAudio();
-  }, [articleData.content]);
+    // }, [articleData.content]);
+  }, []);
 
-  useEffect(() => {
-    if (audioData) {
-      const cleanup = playAudio(audioData); // 일단 호출 안하도록
-      return cleanup;
-    }
-  }, [audioData]);
+  // useEffect(() => {
+  //   if (audioData) {
+  //     const cleanup = playAudio(audioData); // 일단 호출 안하도록
+  //     return cleanup;
+  //   }
+  // }, [audioData]);
 
   return (
     <S.ArticleContainer id="article-container">

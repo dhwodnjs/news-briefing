@@ -4,7 +4,7 @@ import { setArticle, updateContent } from "../../../redux/article.slice";
 import { requestSummary } from "../../../requests/requestSummary";
 import { IArticleDB } from "../../../redux/interface";
 import { get } from "http";
-import { requestPolite } from "../../../requests/requestPolite";
+// import { requestPolite } from "../../../requests/requestPolite";
 
 // export const loadArticle = (
 //   article_id: number,
@@ -40,9 +40,9 @@ export const loadArticleSummary = (article_id: number) => {
   const getSummary = async (article: IArticleDB) => {
     const data = await requestSummary(article.body);
 
-    const polite = await requestPolite(data.result);
+    // const polite = await requestPolite(data.result);
 
-    const result = { ...article, body: polite.result }; // 맞나 ..? ...
+    const result = { ...article }; // 맞나 ..? ...
     return result;
   };
 
