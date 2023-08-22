@@ -9,7 +9,7 @@ const checkLoaded = () => {
   const headlineBody = state.headline.article.title;
   const themeBody = state.themeRecommendation.articles[0]?.title;
   const recommendBody = state.recommendation.articles[0]?.title;
-
+  console.log("headlineBody", headlineBody);
   return (
     isLoaded(headlineBody) && isLoaded(themeBody) && isLoaded(recommendBody)
   );

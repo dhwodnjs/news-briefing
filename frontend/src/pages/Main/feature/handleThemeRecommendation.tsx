@@ -1,8 +1,9 @@
 import { useDispatch } from "react-redux";
-import { setThemeArticles } from "../../../redux/themeArticles.slice";
-import { requestHeadline } from "../../../requests/requestHeadline";
 import { requestThemeRecommendation } from "../../../requests/requestThemeRecommendation";
-import { setThemeRecommendation } from "../../../redux/themeRecommendation.slice";
+import {
+  setThemeLoaded,
+  setThemeRecommendation,
+} from "../../../redux/themeRecommendation.slice";
 
 export const loadThemeRecommendation = (
   theme_id: number,
@@ -18,6 +19,7 @@ export const loadThemeRecommendation = (
 
     getThemeRec().then((news) => {
       dispatch(setThemeRecommendation(news));
+      dispatch(setThemeLoaded(true));
     });
   } catch (e) {
     console.log(e);

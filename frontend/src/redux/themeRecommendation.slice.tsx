@@ -6,6 +6,7 @@ export const themeRecommendationSlice = createSlice({
   initialState: {
     articles: [] as IHeadline[],
     theme: "",
+    isLoaded: false,
   },
   reducers: {
     setThemeRecommendation: (state, action) => {
@@ -20,8 +21,12 @@ export const themeRecommendationSlice = createSlice({
         });
       });
     },
+    setThemeLoaded: (state, action) => {
+      state.isLoaded = action.payload;
+    },
   },
 });
 
-export const { setThemeRecommendation } = themeRecommendationSlice.actions;
+export const { setThemeRecommendation, setThemeLoaded } =
+  themeRecommendationSlice.actions;
 export default themeRecommendationSlice.reducer;

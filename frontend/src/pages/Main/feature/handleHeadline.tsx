@@ -1,4 +1,4 @@
-import { setHeadline } from "../../../redux/headline.slice";
+import { setHeadline, setLoaded } from "../../../redux/headline.slice";
 import { requestHeadline } from "../../../requests/requestHeadline";
 import { useDispatch } from "react-redux";
 
@@ -23,6 +23,7 @@ export const loadHeadline = (dispatch: ReturnType<typeof useDispatch>) => {
         //   "https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png",
       }),
     );
+    dispatch(setLoaded(true));
     // });
   });
 };

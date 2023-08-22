@@ -1,10 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { IArticle, DArticle, IHeadline } from "./interface";
+import { IHeadline } from "./interface";
 
 export const recommendationSlice = createSlice({
   name: "recommendation",
   initialState: {
     articles: [] as IHeadline[],
+    isLoaded: false,
   },
   reducers: {
     setRecommendation: (state, action) => {
@@ -19,8 +20,11 @@ export const recommendationSlice = createSlice({
         });
       });
     },
+    setRecLoaded: (state, action) => {
+      state.isLoaded = action.payload;
+    },
   },
 });
 
-export const { setRecommendation } = recommendationSlice.actions;
+export const { setRecommendation, setRecLoaded } = recommendationSlice.actions;
 export default recommendationSlice.reducer;

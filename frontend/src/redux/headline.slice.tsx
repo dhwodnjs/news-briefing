@@ -1,13 +1,12 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { IHeadline, IArticle } from "./interface";
-import { requestHeadline } from "../requests/requestHeadline";
-import { RootState } from "./store";
+import { createSlice } from "@reduxjs/toolkit";
+import { IHeadline } from "./interface";
 
 export const headlineSlice = createSlice({
   name: "headline",
   initialState: {
     status: "idle",
     article: {} as IHeadline, // !
+    isLoaded: false,
   },
 
   reducers: {
@@ -17,8 +16,11 @@ export const headlineSlice = createSlice({
       state.article.image = action.payload.image;
       state.article.body = action.payload.body;
     },
+    setLoaded: (state, action) => {
+      state.isLoaded = action.payload;
+    },
   },
 });
 
-export const { setHeadline } = headlineSlice.actions;
+export const { setHeadline, setLoaded } = headlineSlice.actions;
 export default headlineSlice.reducer;

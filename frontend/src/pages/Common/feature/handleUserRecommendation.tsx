@@ -1,6 +1,9 @@
 import { useDispatch } from "react-redux";
 import { requestUserRecommendation } from "../../../requests/requestUserRecommendation";
-import { setRecommendation } from "../../../redux/recommendation.slice";
+import {
+  setRecLoaded,
+  setRecommendation,
+} from "../../../redux/recommendation.slice";
 
 export const loadUserRecommendation = (
   dispatch: ReturnType<typeof useDispatch>,
@@ -14,5 +17,6 @@ export const loadUserRecommendation = (
 
   getUserRecommendation().then((news) => {
     dispatch(setRecommendation(news));
+    dispatch(setRecLoaded(true));
   });
 };

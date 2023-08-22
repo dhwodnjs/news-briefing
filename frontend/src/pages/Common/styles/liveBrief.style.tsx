@@ -14,6 +14,15 @@ const popIn = keyframes`
   }
 `;
 
+export const LiveLoaderBox = styled.div`
+  grid-column: 1 / 3;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
 export const LiveBriefBox = styled.div`
   --translateX: -50%;
   --translateY: -50%;
@@ -80,25 +89,26 @@ export const LiveBriefImage = styled.img`
 `;
 
 export const LiveBriefContentContainer = styled.div`
-  display: grid;
-  grid-template-rows: 40px 1fr;
-  padding-top: 40px;
-  padding-bottom: 40px;
+  display: flex;
+  flex-direction: column;
+  grid-template-rows: minmax(0, 1fr) minmax(0, 2fr);
+  align-items: center;
+  height: 100%;
+  overflow: hidden;
+  justify-content: center;
+  gap: 20px;
+}
 `;
 
 export const LiveBriefTitle = styled.div`
   font-size: 25px;
   font-weight: bold;
-  white-space: nowrap;
-  overflow: hidden;
 `;
 
 export const LiveBriefContent = styled.div`
   display: flex;
   oveflow: hidden;
   font-size: 18px;
-  align-items: center;
-  text-vertical-align: middle;
   overflow: hidden;
   padding-bottom: 20px;
 `;

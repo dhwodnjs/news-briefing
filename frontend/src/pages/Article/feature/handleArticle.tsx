@@ -37,12 +37,6 @@ export const loadArticleSummary = (article_id: number) => {
     return article[0];
   };
 
-  const getSummaryTemp = async (article: IArticleDB) => {
-    await delay(2000);
-    const result = { ...article, body: article.body.slice(0, 20) };
-    return result;
-  };
-
   const getSummary = async (article: IArticleDB) => {
     const data = await requestSummary(article.body);
 
@@ -54,11 +48,5 @@ export const loadArticleSummary = (article_id: number) => {
 
   return getArticle(article_id).then((article) => {
     return getSummary(article); // 실제 summary는 getSummary로 대체
-  });
-};
-
-const delay = (ms: number) => {
-  return new Promise((resolve) => {
-    setTimeout(resolve, ms);
   });
 };

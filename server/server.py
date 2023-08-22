@@ -37,11 +37,8 @@ data = pd.DataFrame(columns=colname)
 # data = pd.read_csv("crawl\output\Article_IT과학_20230816_20230816.csv", names = colname)
 
 categories = ["IT과학", "경제", "사회", "생활문화", "세계", "오피니언", "정치"]
-for c in categories:
-    data = data.append(pd.read_csv(
-        f"crawl/output/Article_{c}_20230816_20230816.csv", names=colname))
-data = data.reset_index(drop=True).reset_index().rename(
-    columns={"index": "id"})
+data = pd.concat([pd.read_csv(f"crawl/output/Article_{c}_20230816_20230816.csv", names=colname) for c in categories], ignore_index=True)
+data = data.reset_index(drop=True).reset_index().rename(columns={"index": "id"})
 
 
 @app.on_event("startup")

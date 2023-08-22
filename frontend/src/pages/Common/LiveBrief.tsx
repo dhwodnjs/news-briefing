@@ -9,6 +9,7 @@ import { useEffect, useState } from "react";
 import { checkLoadedSummary } from "../../utils/checkDataloaded";
 import { requestAudio } from "../../requests/requestAudio";
 import { playAudio } from "../../features/audio/playAudio";
+import { SyncLoader } from "react-spinners";
 
 const LiveBrief = () => {
   const state = useSelector((state: any) => state);
@@ -28,27 +29,50 @@ const LiveBrief = () => {
 
   useEffect(() => {
     if (briefState && checkLoadedSummary()) {
-      const briefSummary = state.brief.briefSummaried;
-      const briefTitle = state.brief.briefTitles;
-      const LiveBriefImage = state.brief.imageList;
+      if (briefUserState) {
+        const briefSummary = state.brief.briefSummaried;
+        const briefTitle = state.brief.briefTitles;
+        const LiveBriefImage = state.brief.imageList;
 
-      setTitle(briefTitle[0]);
-      setContent(briefSummary[0].result);
-      setImage(LiveBriefImage[0]);
+        setTitle(briefTitle[0]);
+        setContent(briefSummary[0].result);
+        setImage(LiveBriefImage[0]);
+      } else if (briefThemeState && checkLoadedSummary()) {
+        const briefSummary = state.brief.tBriefSummaried;
+        const briefTitle = state.brief.tBriefTitles;
+        const LiveBriefImage = state.brief.tImageList;
+
+        setTitle(briefTitle[0]);
+        setContent(briefSummary[0].result);
+        setImage(LiveBriefImage[0]);
+      }
     }
   }, [state]);
 
   useEffect(() => {
-    if (idx !== 0 && idx < state.brief.briefSummaried.length) {
+    if (
+      briefUserState &&
+      idx !== 0 &&
+      idx < state.brief.briefSummaried.length
+    ) {
       setTitle(state.brief.briefTitles[idx]);
       setContent(state.brief.briefSummaried[idx].result);
       setImage(state.brief.imageList[idx]);
+    } else if (
+      briefThemeState &&
+      idx !== 0 &&
+      idx < state.brief.tBriefSummaried.length
+    ) {
+      setTitle(state.brief.tBriefTitles[idx]);
+      setContent(state.brief.tBriefSummaried[idx].result);
+      setImage(state.brief.tImageList[idx]);
     }
   }, [idx]);
 
   useEffect(() => {
     const fetchAudio = async () => {
       const data = await requestAudio(content); // 일단 호출 안하도록
+      console.log(audio);
       setAudio(data);
     };
     fetchAudio();
@@ -71,13 +95,21 @@ const LiveBrief = () => {
   return briefState ? (
     <S.LiveBriefBox>
       <S.ExitButton onClick={handleExitButton}>X</S.ExitButton>
-      <S.LiveBriefImageWrapper>
-        <S.LiveBriefImage src={image} />
-      </S.LiveBriefImageWrapper>
-      <S.LiveBriefContentContainer>
-        <S.LiveBriefTitle>{title}</S.LiveBriefTitle>
-        <S.LiveBriefContent>{content}</S.LiveBriefContent>
-      </S.LiveBriefContentContainer>
+      {audio && title && content && image ? (
+        <>
+          <S.LiveBriefImageWrapper>
+            <S.LiveBriefImage src={image} />
+          </S.LiveBriefImageWrapper>
+          <S.LiveBriefContentContainer>
+            <S.LiveBriefTitle>{title}</S.LiveBriefTitle>
+            <S.LiveBriefContent>{content}</S.LiveBriefContent>
+          </S.LiveBriefContentContainer>
+        </>
+      ) : (
+        <S.LiveLoaderBox>
+          <SyncLoader color="#A9A9A9" />
+        </S.LiveLoaderBox>
+      )}
     </S.LiveBriefBox>
   ) : (
     <></>
