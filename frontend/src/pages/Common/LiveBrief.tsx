@@ -23,6 +23,10 @@ const LiveBrief = () => {
   const [content, setContent] = useState("");
   const [image, setImage] = useState("");
 
+  const [Ttitle, setTTitle] = useState("");
+  const [Tcontent, setTContent] = useState("");
+  const [Timage, setTImage] = useState("");
+
   const [idx, setIdx] = useState(0);
 
   const [audio, setAudio] = useState<ArrayBuffer | null>(null);
@@ -42,9 +46,9 @@ const LiveBrief = () => {
         const briefTitle = state.brief.tBriefTitles;
         const LiveBriefImage = state.brief.tImageList;
 
-        setTitle(briefTitle[0]);
-        setContent(briefSummary[0].result);
-        setImage(LiveBriefImage[0]);
+        setTTitle(briefTitle[0]);
+        setTContent(briefSummary[0].result);
+        setTImage(LiveBriefImage[0]);
       }
     }
   }, [state]);

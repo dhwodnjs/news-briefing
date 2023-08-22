@@ -3,7 +3,6 @@ import SpeechRecognition, {
   useSpeechRecognition,
 } from "react-speech-recognition";
 
-import { useNavigate } from "react-router-dom";
 import HandleGenie from "./feature/HandleGenie";
 
 import * as S from "../styles";
@@ -24,41 +23,18 @@ const AudioRecorder = () => {
     SpeechRecognition.stopListening();
   };
 
-  // const recordingDuration = 5000;
-
-  // useEffect(() => {
-  //   if (isListening) {
-  //     startListening();
-
-  //     const timeoutId = setTimeout(() => {
-  //       stopListening();
-  //     }, recordingDuration);
-
-  //     return () => {
-  //       clearTimeout(timeoutId);
-  //     };
-  //   }
-  // }, [isListening]);
-
-  // useEffect(() => {
-  //   console.log(transcript);
-  // }, [transcript]);
-
-  // const handleToggleRecording = () => {
-  //   setIsListening(!isListening);
-  // };
-
-  //
+  useEffect(() => {
+    console.log(transcript);
+  }, [transcript]);
 
   const [isGenie, setIsGenie] = useState(false);
-  const navigate = useNavigate();
 
   useEffect(() => {
     startListening();
   });
 
   useEffect(() => {
-    if (transcript.includes("기가지니")) {
+    if (transcript.includes("기가") || transcript.includes("지니")) {
       setIsGenie(true);
       resetTranscript();
       startListening();

@@ -31,9 +31,11 @@ const HandleGenie = ({ genie }: HandleGenieProps) => {
 
   useEffect(() => {
     if (genie.includes("브리핑")) {
-      // 메인 뉴스 브리핑
-      // 테마 뉴스 브리핑
-      // 특정 기사 브리핑
+      if (genie.includes("테마")) {
+        document.getElementById("brief-button-theme")?.click();
+      } else {
+        document.getElementById("brief-button-user")?.click();
+      }
     } else if (genie.includes("이동")) {
       // 메인 화면으로 이동
       // 테마 화면으로 이동
