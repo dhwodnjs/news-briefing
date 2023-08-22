@@ -76,6 +76,9 @@ const ArticleContent = styled.div`
   white-space: inherit;
   margin-top: 18px;
   margin-bottom: 36px;
+  &::-webkit-scrollbar {
+    display: none;
+  }
 `;
 
 export {

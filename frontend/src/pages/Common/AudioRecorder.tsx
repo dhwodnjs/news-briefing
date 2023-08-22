@@ -76,20 +76,14 @@ const AudioRecorder = () => {
   //   }
   // }, [isGenie]);
 
-  return (
+  return isGenie ? (
     <S.recorderContainer>
-      {/* <h1>Audio Recorder</h1> */}
-      <p>{isGenie ? "👀 : " + transcript : ""}</p>
-      {/* <p>
-        {"👀 : " +
-          "와아아ㅏㅇ아아아아아아아아아아아아아아아아아아아아아아아아아아아앙ㅇ"}
-      </p> */}
+      <S.recorderButton>{"👀"}</S.recorderButton>
+      <S.recordText>{transcript}</S.recordText>
       <HandleGenie genie={transcript} />
-      {/* <p>{transcript}</p> */}
-      {/* <button onClick={handleToggleRecording}>
-        {isListening ? "Stop Recording" : "Start Recording"}
-      </button> */}
     </S.recorderContainer>
+  ) : (
+    <div></div>
   );
 };
 

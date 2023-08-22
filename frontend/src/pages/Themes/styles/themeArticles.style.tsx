@@ -19,6 +19,9 @@ const themeArticlesList = styled.div`
   border-radius: 12px;
 
   overflow: scroll;
+  &::-webkit-scrollbar {
+    display: none;
+  }
 `;
 
 const themeArticlesItem = styled.div`

@@ -15,6 +15,18 @@ const RecommendationList = styled.div`
   &::-webkit-scrollbar {
     display: none;
   }
+
+  transition:
+    margin 0.2s ease-in-out,
+    box-shadow 0.2s ease-in-out,
+    font-size 0.2s ease-in-out,
+    font-weight 0.2s ease-in-out;
+
+  &:hover {
+    cursor: pointer;
+    box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.1);
+    margin: -3px;
+  }
 `;
 
 /**

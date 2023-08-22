@@ -14,16 +14,42 @@ const MainProfileCircleWrapper = styled.div`
   padding-right: 12px;
 
   margin-left: 12px;
+
+  transition:
+    margin 0.2s ease-in-out,
+    box-shadow 0.2s ease-in-out,
+    font-size 0.2s ease-in-out,
+    font-weight 0.2s ease-in-out;
+
+  &:hover {
+    cursor: pointer;
+    box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.1);
+    margin: -3px;
+    margin-left: 9px;
+  }
 `;
 
 const ProfileCircleWrapper = styled.div`
   display: flex;
-  width: 100%;
-  padding-top: 55%;
-  padding-bottom: 55%;
+  width: 90%;
+  padding-top: 50%;
+  padding-bottom: 50%;
   margin-left: 20px;
 
   justify-self: flex-end; /* Aligns content to the right */
+
+  transition:
+    margin 0.2s ease-in-out,
+    box-shadow 0.2s ease-in-out,
+    font-size 0.2s ease-in-out,
+    font-weight 0.2s ease-in-out;
+
+  &:hover {
+    cursor: pointer;
+    box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.1);
+    margin: -3px;
+    margin-left: 9px;
+  }
 `;
 
 const ProfileCircleItem = styled.div`

@@ -7,8 +7,6 @@ const TodayHeadLineContainer = styled.div`
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: minmax(0, 40px) minmax(0, 1fr);
-
-  overflow: hidden;
 `;
 
 const TodayHeadLineWrapper = styled.div`
@@ -20,6 +18,19 @@ const TodayHeadLineWrapper = styled.div`
   grid-template-rows: minmax(50px, 7fr) minmax(0px, 0.5fr) minmax(50px, 1fr);
   background-color: white;
   border-radius: 12px;
+
+  margin: 0;
+  transition:
+    margin 0.2s ease-in-out,
+    box-shadow 0.2s ease-in-out,
+    font-size 0.2s ease-in-out,
+    font-weight 0.2s ease-in-out;
+
+  &:hover {
+    cursor: pointer;
+    box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.1);
+    margin: -3px;
+  }
 `;
 
 const TodayHeadlineImageWrapper = styled.div`
@@ -100,6 +111,7 @@ const TodayHeadlineTitle = styled.div`
   &:hover {
     text-decoration: underline;
   }
+  overflow: hidden;
 `;
 
 export {

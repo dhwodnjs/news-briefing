@@ -8,6 +8,7 @@ export * from "./Common/styles/profileCircle.style";
 export * from "./Common/styles/sectionTitle.style";
 export * from "./Common/styles/userRecommendation.style";
 export * from "./Common/styles/sideBar.style";
+export * from "./Common/styles/liveBrief.style";
 
 export * from "./Common/styles/audioRecorder.style";
 

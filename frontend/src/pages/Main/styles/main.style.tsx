@@ -5,6 +5,7 @@ import { styled } from "styled-components";
  *
  */
 const MainWindow = styled.div`
+  position: relative;
   @media (min-width: 650px) {
     width: 900px;
     height: 90vh;
@@ -18,7 +19,7 @@ const MainWindow = styled.div`
   display: grid;
 
   grid-template-columns: 130px 1fr;
-  grid-template-rows: 50px 1fr 5fr 0.3fr; // !!!
+  grid-template-rows: 50px 1fr 5fr; // !!!
 
   margin: 5vh auto 5vh auto;
   background-color: #efefef;
