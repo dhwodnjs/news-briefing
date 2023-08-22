@@ -5,6 +5,7 @@ import recommendationSlicer from "./recommendation.slice";
 import themeRecommendationSlicer from "./themeRecommendation.slice";
 import themeArticlesSlicer from "./themeArticles.slice";
 import articleSlicer from "./article.slice";
+import briefSlice from "./brief.slice";
 
 const store = configureStore({
   reducer: {
@@ -13,6 +14,7 @@ const store = configureStore({
     themeRecommendation: themeRecommendationSlicer,
     themeArticles: themeArticlesSlicer,
     article: articleSlicer,
+    brief: briefSlice,
   },
 });
 

@@ -13,10 +13,16 @@ const selectThemeArticles = (state: RootState) =>
 
 const selectArticle = (state: RootState) => state.article.article;
 
+const selectBriefUserState = (state: RootState) => state.brief.briefUserStart;
+
+const selectBriefThemeState = (state: RootState) => state.brief.briefThemeStart;
+
 export {
   selectHeadline,
   selectRecommendation,
   selectThemeRecommendation,
   selectThemeArticles,
   selectArticle,
+  selectBriefUserState,
+  selectBriefThemeState,
 };

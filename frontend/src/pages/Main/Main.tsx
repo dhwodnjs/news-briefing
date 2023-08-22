@@ -10,6 +10,7 @@ import ProfileCircle from "../Common/ProfileCircle";
 import { useDispatch } from "react-redux";
 import SideBar from "../Common/SideBar";
 import AudioRecorder from "../Common/AudioRecorder";
+import LiveBrief from "../Common/LiveBrief";
 // import { initRecommendationSlice } from "../../redux/recommendation.slice";
 // import { initThemeRecommendationSlice } from "../../redux/themeRecommendation.slice";
 // import { initThemeArticlesSlice } from "../../redux/themeArticles.slice";
@@ -33,6 +34,7 @@ const Main = () => {
         <Brief />
       </S.MainPage>
       <AudioRecorder />
+      <LiveBrief />
     </S.MainWindow>
   );
 };
