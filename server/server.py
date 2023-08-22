@@ -13,6 +13,7 @@ from pymongo import MongoClient
 
 from utils.schemas import Text
 from feature.request_genie import get_summary, get_tts
+from model.Changer.request_polite import get_polite
 
 # App Setting Section
 
@@ -112,6 +113,10 @@ async def audio(text: Text):
     audio_content = response.content
     return Response(content=audio_content, media_type="audio/mpeg")
 
+@app.post("/api/polite")
+async def polite(text: Text):
+    response = get_polite(text.text)
+    return {"result": response}
 
 # @app.get("/{any}")
 # async def root(any: str):
