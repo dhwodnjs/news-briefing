@@ -8,6 +8,18 @@ export interface IArticle {
   press: string;
 }
 
+export interface IArticleDB {
+  id: number;
+  title: string;
+  category_name: string;
+  image: string;
+  body: string;
+  tags?: string[];
+  press: string;
+  content_url: string;
+  date: string;
+}
+
 export interface IHeadline {
   id: number;
   title: string;

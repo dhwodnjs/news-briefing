@@ -9,6 +9,8 @@ export * from "./Common/styles/sectionTitle.style";
 export * from "./Common/styles/userRecommendation.style";
 export * from "./Common/styles/sideBar.style";
 
+export * from "./Common/styles/audioRecorder.style";
+
 // Article
 export * from "./Article/styles/article.style";
 export * from "./Article/styles/articleContent.style";

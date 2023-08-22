@@ -2,72 +2,65 @@ import SectionTitle from "../../Common/SectionTitle";
 import * as S from "../../styles";
 import { playAudio } from "../../../features/audio/playAudio";
 import { requestAudio } from "../../../requests/requestAudio";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useParams } from "react-router-dom";
-import { loadArticle, summarizeArticle } from "../feature/handleArticle";
-import { useDispatch, useSelector } from "react-redux";
-import { selectArticle } from "../../../redux/selector";
+import { loadArticleSummary } from "../feature/handleArticle";
 
-interface ArticleContentProps {
-  title: string;
-  image: string;
-  content: string;
-}
+const defaultArticle = {
+  id: 1000000000,
+  title: "로딩중",
+  image:
+    "https://ssl.pstatic.net/static.news/image/news/ogtag/navernews_800x420_20221201.jpg",
+  content: "로딩중",
+};
 
 const ArticleContent = () => {
   const [audioData, setAudioData] = useState<ArrayBuffer | null>(null);
+  const [articleData, setArticleData] = useState(defaultArticle);
 
-  const article = useSelector(selectArticle);
   const param = useParams().id as string;
   const article_id = parseInt(param);
-  const dispatch = useDispatch();
 
   useEffect(() => {
-    loadArticle(article_id, dispatch);
+    setArticleData(defaultArticle);
+    loadArticleSummary(article_id).then((article) => {
+      setArticleData({
+        id: article.id,
+        title: article.title,
+        image: article.image,
+        content: article.body,
+      });
+    });
   }, [article_id]);
 
-  // 일단 보류
-  // useEffect(() => {
-  //   if (article.content) {
-  //     summarizeArticle(article.content, dispatch);
-  //   }
-  // }, [article.content]);
+  useEffect(() => {
+    console.log(articleData.content);
+    const fetchAudio = async () => {
+      if (articleData.content === "로딩중") return;
+      const data = await requestAudio(articleData.content); // 일단 호출 안하도록
+      setAudioData(data);
+    };
+    fetchAudio();
+  }, [articleData.content]);
 
-  // ------------------------------
-
-  // article.content 반영이 한 템포 늦는 것 같음.
-  // react 공부 .. .합시다..^^
-
-  // useEffect(() => {
-  //   if (article.content) {
-  //     const fetchData = async () => {
-  //       console.log(article.content);
-  //       const data = await requestAudio(article.content);
-  //       setAudioData(data);
-  //     };
-
-  //     fetchData();
-  //   }
-  // }, [article_id]);
-
-  // useEffect(() => {
-  //   if (audioData) {
-  //     const cleanup = playAudio(audioData);
-  //     return cleanup; // This will be called if the component unmounts
-  //   }
-  // }, [audioData]);
+  useEffect(() => {
+    if (audioData) {
+      const cleanup = playAudio(audioData); // 일단 호출 안하도록
+      return cleanup;
+    }
+  }, [audioData]);
 
   return (
     <S.ArticleContainer id="article-container">
       <SectionTitle text="뉴스" />
       <S.ArticleWrapper id="article-wrapper">
-        <S.ArticleTitle id="article-title">{article.title}</S.ArticleTitle>
+        <S.ArticleTitle id="article-title">{articleData.title}</S.ArticleTitle>
         <S.ArticleImageWrapper id="article-image-wrapper">
-          <S.ArticleImage id="article-img" src={article.image} />
+          <S.ArticleImage id="article-img" src={articleData.image} />
         </S.ArticleImageWrapper>
         <S.ArticleContent id="article-content">
           {" "}
-          {article.content}{" "}
+          {articleData.content}{" "}
         </S.ArticleContent>
       </S.ArticleWrapper>
     </S.ArticleContainer>

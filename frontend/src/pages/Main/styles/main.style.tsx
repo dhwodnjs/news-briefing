@@ -18,7 +18,7 @@ const MainWindow = styled.div`
   display: grid;
 
   grid-template-columns: 130px 1fr;
-  grid-template-rows: 50px 1fr 5fr;
+  grid-template-rows: 50px 1fr 5fr 0.3fr; // !!!
 
   margin: 5vh auto 5vh auto;
   background-color: #efefef;

@@ -9,6 +9,7 @@ import UserRecommendations from "../Common/UserRecommendations";
 import ProfileCircle from "../Common/ProfileCircle";
 import { useDispatch } from "react-redux";
 import SideBar from "../Common/SideBar";
+import AudioRecorder from "../Common/AudioRecorder";
 // import { initRecommendationSlice } from "../../redux/recommendation.slice";
 // import { initThemeRecommendationSlice } from "../../redux/themeRecommendation.slice";
 // import { initThemeArticlesSlice } from "../../redux/themeArticles.slice";
@@ -31,6 +32,7 @@ const Main = () => {
         <ThemeRecommendation theme={"IT과학"} />
         <Brief />
       </S.MainPage>
+      <AudioRecorder />
     </S.MainWindow>
   );
 };
