@@ -5,7 +5,6 @@
  * Locate at Main.tsx right bottom.
  * (For now, section is named as 많이 본 뉴스 in figma)
  */
-import React from "react";
 import * as S from "../styles";
 import SectionTitle from "./SectionTitle";
 import { setBriefTheme, setBriefUser } from "../../redux/brief.slice";

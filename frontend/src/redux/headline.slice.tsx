@@ -15,6 +15,7 @@ export const headlineSlice = createSlice({
       state.article.id = action.payload.id;
       state.article.title = action.payload.title;
       state.article.image = action.payload.image;
+      state.article.body = action.payload.body;
     },
   },
 });

@@ -26,6 +26,16 @@ const ArticleWrapper = styled.div`
   // background-color: red;
 `;
 
+const ArticleLoaderWrapper = styled.div`
+  display: flex;
+  width: 100%;
+  height: 100%;
+  grid-column: 1 / 2;
+  grid-row: 1 / 4;
+  justify-content: center;
+  align-items: center;
+`;
+
 const ArticleTitle = styled.div`
   grid-column: 1 / 2;
   grid-row: 1 / 2;
@@ -88,4 +98,5 @@ export {
   ArticleContent,
   ArticleImageWrapper,
   ArticleImage,
+  ArticleLoaderWrapper,
 };

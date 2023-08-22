@@ -16,6 +16,7 @@ export const loadHeadline = (dispatch: ReturnType<typeof useDispatch>) => {
         id: news[0].id,
         title: news[0].title,
         image: news[0].image,
+        body: news[0].body,
         // id: "123445",
         // title: "리액트 너무 어려워 하기 싫어 웹개발 싫어",
         // image:

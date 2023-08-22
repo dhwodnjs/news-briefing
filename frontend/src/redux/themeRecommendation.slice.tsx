@@ -16,6 +16,7 @@ export const themeRecommendationSlice = createSlice({
           title: article.title,
           image: article.image,
           press: article.press,
+          body: article.body,
         });
       });
     },

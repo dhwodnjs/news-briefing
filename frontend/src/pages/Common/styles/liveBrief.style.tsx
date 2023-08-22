@@ -25,7 +25,7 @@ export const LiveBriefBox = styled.div`
 
   position: absolute;
   width: 70%;
-  height: 60%;
+  height: 70%;
 
   top: 50%;
   left: 50%;
@@ -89,11 +89,18 @@ export const LiveBriefContentContainer = styled.div`
 export const LiveBriefTitle = styled.div`
   font-size: 25px;
   font-weight: bold;
+  white-space: nowrap;
+  overflow: hidden;
 `;
 
 export const LiveBriefContent = styled.div`
+  display: flex;
   oveflow: hidden;
   font-size: 18px;
+  align-items: center;
+  text-vertical-align: middle;
+  overflow: hidden;
+  padding-bottom: 20px;
 `;
 
 export const ExitButton = styled.button`

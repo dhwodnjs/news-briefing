@@ -1,28 +1,37 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import * as S from "../styles";
 import Header from "../Common/Header";
-import Categories from "../Common/Categories";
 import TodayHeadline from "./components/TodayHeadline";
 import ThemeRecommendation from "./components/ThemeRecommendation";
 import Brief from "../Common/Brief";
 import UserRecommendations from "../Common/UserRecommendations";
-import ProfileCircle from "../Common/ProfileCircle";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import SideBar from "../Common/SideBar";
 import AudioRecorder from "../Common/AudioRecorder";
 import LiveBrief from "../Common/LiveBrief";
-// import { initRecommendationSlice } from "../../redux/recommendation.slice";
-// import { initThemeRecommendationSlice } from "../../redux/themeRecommendation.slice";
-// import { initThemeArticlesSlice } from "../../redux/themeArticles.slice";
+import checkLoaded from "../../utils/checkDataloaded";
+import { setDataLoaded } from "../../redux/brief.slice";
+import { updateAll } from "../Common/feature/handleBrief";
 
 const Main = () => {
   const dispatch = useDispatch();
+  const state = useSelector((state: any) => state);
 
   useEffect(() => {
-    // dispatch(initRecommendationSlice());
-    // dispatch(initThemeRecommendationSlice());
-    // dispatch(initThemeArticlesSlice());
-  });
+    dispatch(setDataLoaded(false));
+  }, []);
+
+  useEffect(() => {
+    if (checkLoaded()) {
+      dispatch(setDataLoaded(true));
+    }
+  }, [state]);
+
+  useEffect(() => {
+    state.brief.dataloaded && updateAll(dispatch);
+    state.brief.dataloaded;
+  }, [state.brief.dataloaded]);
+
   return (
     <S.MainWindow id="main-window">
       <Header />

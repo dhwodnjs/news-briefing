@@ -2,9 +2,10 @@ import SectionTitle from "../../Common/SectionTitle";
 import * as S from "../../styles";
 import { playAudio } from "../../../features/audio/playAudio";
 import { requestAudio } from "../../../requests/requestAudio";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { loadArticleSummary } from "../feature/handleArticle";
+import { SyncLoader } from "react-spinners";
 
 const defaultArticle = {
   id: 1000000000,
@@ -53,16 +54,26 @@ const ArticleContent = () => {
   return (
     <S.ArticleContainer id="article-container">
       <SectionTitle text="뉴스" />
-      <S.ArticleWrapper id="article-wrapper">
-        <S.ArticleTitle id="article-title">{articleData.title}</S.ArticleTitle>
-        <S.ArticleImageWrapper id="article-image-wrapper">
-          <S.ArticleImage id="article-img" src={articleData.image} />
-        </S.ArticleImageWrapper>
-        <S.ArticleContent id="article-content">
-          {" "}
-          {articleData.content}{" "}
-        </S.ArticleContent>
-      </S.ArticleWrapper>
+      {articleData.content === "로딩중" ? (
+        <S.ArticleWrapper id="article-wrapper">
+          <S.ArticleLoaderWrapper id="article-loader-wrapper">
+            <SyncLoader color="#A9A9A9" size={20} />
+          </S.ArticleLoaderWrapper>
+        </S.ArticleWrapper>
+      ) : (
+        <S.ArticleWrapper id="article-loader-wrapper">
+          <S.ArticleTitle id="article-title">
+            {articleData.title}
+          </S.ArticleTitle>
+          <S.ArticleImageWrapper id="article-image-wrapper">
+            <S.ArticleImage id="article-img" src={articleData.image} />
+          </S.ArticleImageWrapper>
+          <S.ArticleContent id="article-content">
+            {" "}
+            {articleData.content}{" "}
+          </S.ArticleContent>
+        </S.ArticleWrapper>
+      )}
     </S.ArticleContainer>
   );
 };

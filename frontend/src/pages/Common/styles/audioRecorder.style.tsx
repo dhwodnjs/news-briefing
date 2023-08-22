@@ -29,5 +29,6 @@ const recorderButton = styled.div`
 
 const recordText = styled.div`
   flex: 1;
+  padding: 20px;
 `;
 export { recorderContainer, recorderButton, recordText };

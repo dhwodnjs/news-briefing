@@ -5,16 +5,63 @@ import {
   selectBriefThemeState,
 } from "../../redux/selector";
 import { setBriefTheme, setBriefUser } from "../../redux/brief.slice";
+import { useEffect, useState } from "react";
+import { checkLoadedSummary } from "../../utils/checkDataloaded";
+import { requestAudio } from "../../requests/requestAudio";
+import { playAudio } from "../../features/audio/playAudio";
 
 const LiveBrief = () => {
+  const state = useSelector((state: any) => state);
   const dispatch = useDispatch();
+
   const briefUserState = useSelector(selectBriefUserState);
   const briefThemeState = useSelector(selectBriefThemeState);
-
   const briefState = briefUserState || briefThemeState;
 
-  const dStr = `재의의 요구가 있을 때에는 국회는 재의에 붙이고, 재적의원과반수의 출석과 출석의원 3분의 2 이상의 찬성으로 전과 같은 의결을 하면 그 법률안은 법률로서 확정된다.
-정당의 목적이나 활동이 민주적 기본질서에 위배될 때에는 정부는 헌법재판소에 그 해산을 제소할 수 있고, 정당은 헌법재판소의 심판에 의하여 해산된다.`;
+  const [title, setTitle] = useState("");
+  const [content, setContent] = useState("");
+  const [image, setImage] = useState("");
+
+  const [idx, setIdx] = useState(0);
+
+  const [audio, setAudio] = useState<ArrayBuffer | null>(null);
+
+  useEffect(() => {
+    if (briefState && checkLoadedSummary()) {
+      const briefSummary = state.brief.briefSummaried;
+      const briefTitle = state.brief.briefTitles;
+      const LiveBriefImage = state.brief.imageList;
+
+      setTitle(briefTitle[0]);
+      setContent(briefSummary[0].result);
+      setImage(LiveBriefImage[0]);
+    }
+  }, [state]);
+
+  useEffect(() => {
+    if (idx !== 0 && idx < state.brief.briefSummaried.length) {
+      setTitle(state.brief.briefTitles[idx]);
+      setContent(state.brief.briefSummaried[idx].result);
+      setImage(state.brief.imageList[idx]);
+    }
+  }, [idx]);
+
+  useEffect(() => {
+    const fetchAudio = async () => {
+      const data = await requestAudio(content); // 일단 호출 안하도록
+      setAudio(data);
+    };
+    fetchAudio();
+  }, [content]);
+
+  useEffect(() => {
+    if (audio && briefState) {
+      const cleanup = playAudio(audio, () => {
+        setIdx((prevIdx) => prevIdx + 1); // Increment idx when audio ends
+      }); // 일단 호출 안하도록
+      return cleanup;
+    }
+  }, [audio]);
 
   const handleExitButton = () => {
     dispatch(setBriefUser(false));
@@ -25,11 +72,11 @@ const LiveBrief = () => {
     <S.LiveBriefBox>
       <S.ExitButton onClick={handleExitButton}>X</S.ExitButton>
       <S.LiveBriefImageWrapper>
-        <S.LiveBriefImage src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg" />
+        <S.LiveBriefImage src={image} />
       </S.LiveBriefImageWrapper>
       <S.LiveBriefContentContainer>
-        <S.LiveBriefTitle>Live Brief</S.LiveBriefTitle>
-        <S.LiveBriefContent>{dStr}</S.LiveBriefContent>
+        <S.LiveBriefTitle>{title}</S.LiveBriefTitle>
+        <S.LiveBriefContent>{content}</S.LiveBriefContent>
       </S.LiveBriefContentContainer>
     </S.LiveBriefBox>
   ) : (

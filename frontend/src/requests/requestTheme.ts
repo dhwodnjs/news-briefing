@@ -1,6 +1,6 @@
 export const requestTheme = async (category_id: number) => {
   const response = await fetch(
-    `http://172.30.1.4:8000/api/sample/${category_id}?num=5`,
+    `http://172.30.1.85:8000/api/sample/${category_id}?num=8`,
     {
       // const response = await fetch(`/api/sample`, {
       method: "GET",

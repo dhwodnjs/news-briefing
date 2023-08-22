@@ -24,6 +24,7 @@ export interface IHeadline {
   id: number;
   title: string;
   image: string;
+  body?: string;
   tags?: string[];
   press?: string;
 }
