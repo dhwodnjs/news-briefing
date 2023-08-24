@@ -15,12 +15,12 @@ const ProfileCircle = () => {
    */
 
   const defaultProfileImage: ProfileCircleProps = {
-    profileImage: process.env.PUBLIC_URL + `/image/image1.jpg`,
+    profileImage: process.env.PUBLIC_URL + `/image1.jpg`,
     profileName: "JAEWON",
   };
 
   const navigate = useNavigate();
-
+  console.log(defaultProfileImage.profileImage);
   return (
     <S.MainProfileCircleWrapper id="profile-circle-wrapper">
       <S.ProfileCircleItem

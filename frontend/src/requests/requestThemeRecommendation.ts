@@ -2,7 +2,9 @@
 export const requestThemeRecommendation = async (category_id: number) => {
   // const response = await fetch("/api/sample", {
   const response = await fetch(
-    `http://172.30.1.85:8000/api/sample/${category_id}?num=2`,
+    `http://${
+      process.env.REACT_APP_IP_ADDR
+    }:8000/api/sample/${category_id}?num=2`,
     {
       method: "GET",
       headers: {

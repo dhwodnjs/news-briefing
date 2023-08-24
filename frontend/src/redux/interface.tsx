@@ -38,7 +38,7 @@ export const DArticle: IArticle = {
   id: 0,
   title: "test",
   theme: "test",
-  image: process.env.PUBLIC_URL + `/image/image1.jpg`,
+  image: process.env.PUBLIC_URL + `/image1.jpg`,
   content: "test",
   tags: ["test1", "test2", "test3"],
   press: "test",

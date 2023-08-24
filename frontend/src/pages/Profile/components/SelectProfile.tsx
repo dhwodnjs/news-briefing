@@ -6,15 +6,15 @@ const SelectProfile = () => {
   const DefaultUserList = [
     {
       name: "User 1",
-      image: process.env.PUBLIC_URL + `/image/image1.jpg`,
+      image: process.env.PUBLIC_URL + `/image1.jpg`,
     },
     {
       name: "User 2",
-      image: process.env.PUBLIC_URL + `/image/image1.jpg`,
+      image: process.env.PUBLIC_URL + `/image1.jpg`,
     },
     {
       name: "User 3",
-      image: process.env.PUBLIC_URL + `/image/image1.jpg`,
+      image: process.env.PUBLIC_URL + `/image1.jpg`,
     },
   ];
 

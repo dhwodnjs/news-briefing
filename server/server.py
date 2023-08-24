@@ -1,7 +1,5 @@
 import json
-import random
 import pandas as pd
-import warnings
 from typing import List, Optional
 
 
@@ -9,7 +7,6 @@ from fastapi import FastAPI, Response
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
-from pymongo import MongoClient
 
 from utils.schemas import Text
 from feature.request_genie import get_summary, get_tts
@@ -39,18 +36,6 @@ data = pd.DataFrame(columns=colname)
 categories = ["IT과학", "경제", "사회", "생활문화", "세계", "오피니언", "정치"]
 data = pd.concat([pd.read_csv(f"crawl/output/Article_{c}_20230816_20230816.csv", names=colname) for c in categories], ignore_index=True)
 data = data.reset_index(drop=True).reset_index().rename(columns={"index": "id"})
-
-
-@app.on_event("startup")
-async def startup_db_client():
-    app.mongodb_client = MongoClient('localhost', 27017)
-    app.mongodb_db = app.mongodb_client.news_data
-    app.mongodb_collection = app.mongodb_db.today_data
-
-
-@app.on_event("shutdown")
-async def shutdown_db_client():
-    app.mongodb_client.close()
 
 
 @app.get("/api/sample")
@@ -114,62 +99,6 @@ async def audio(text: Text):
 async def polite(text: Text):
     response = get_polite(text.text)
     return {"result": response}
-
-# @app.get("/{any}")
-# async def root(any: str):
-#     return RedirectResponse("/")
-
-
-# @app.get("/{any}/{something}")
-# async def root(any: str):
-#     return RedirectResponse("/")
-
-# # API Section
-# @app.get("/api/headline")
-# async def get_headline():
-#     with open("data/headline.json", "r", encoding="utf-8") as f:
-#         data = json.load(f)
-#     return data
-
-
-# # Get recommendation
-# @app.get("/api/recommendation")
-# async def get_recommendation():
-#     with open("data/recommendation.json", "r", encoding="utf-8") as f:
-#         data = json.load(f)
-#     return data
-
-# # Get theme recommendation
-
-
-# @app.get("/api/theme_recommendation")
-# async def get_theme_recommendation():
-#     # ['정치', '경제', '사회', '생활문화', '세계', 'IT과학', '오피니언']
-#     with open("data/theme_recommendation.json", "r", encoding="utf-8") as f:
-#         data = json.load(f)
-#     return data
-
-# # Get article
-
-
-# @app.get("/api/article/{article_id}")
-# async def get_article(article_id: int):
-#     with open(f"data/article/{article_id}.json", "r", encoding="utf-8") as f:
-#         data = json.load(f)
-#     return data
-
-# # Get theme articles
-
-
-# @app.get("/api/theme_article/{theme_id}")
-# async def get_theme_article(theme_id: int):
-#     with open(f"data/theme_article/{theme_id}.json", "r", encoding="utf-8") as f:
-#         data = json.load(f)
-#     return data
-
-
-# Static Section
-# app.mount("/", StaticFiles(directory="build", html=True), name="static")
 
 
 # Catch up

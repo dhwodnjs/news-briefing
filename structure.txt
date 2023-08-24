@@ -1,0 +1,194 @@
+.
+├── Dockerfile
+├── README.md
+├── SETUP.md
+├── frontend
+│   ├── README.md
+│   ├── package-lock.json
+│   ├── package.json
+│   ├── public
+│   │   ├── favicon.ico
+│   │   ├── image
+│   │   │   └── image1.jpg
+│   │   ├── index.html
+│   │   ├── logo192.png
+│   │   ├── logo512.png
+│   │   ├── manifest.json
+│   │   └── robots.txt
+│   ├── src
+│   │   ├── App.css
+│   │   ├── App.tsx
+│   │   ├── features
+│   │   │   └── audio
+│   │   │       └── playAudio.ts
+│   │   ├── index.css
+│   │   ├── index.tsx
+│   │   ├── logo.svg
+│   │   ├── pages
+│   │   │   ├── Article
+│   │   │   │   ├── Article.tsx
+│   │   │   │   ├── components
+│   │   │   │   │   └── ArticleContent.tsx
+│   │   │   │   ├── feature
+│   │   │   │   │   └── handleArticle.tsx
+│   │   │   │   └── styles
+│   │   │   │       ├── article.style.tsx
+│   │   │   │       └── articleContent.style.tsx
+│   │   │   ├── Common
+│   │   │   │   ├── AudioRecorder.tsx
+│   │   │   │   ├── Brief.tsx
+│   │   │   │   ├── Categories.tsx
+│   │   │   │   ├── Header.tsx
+│   │   │   │   ├── LiveBrief.tsx
+│   │   │   │   ├── ProfileCircle.tsx
+│   │   │   │   ├── SectionTitle.tsx
+│   │   │   │   ├── SideBar.tsx
+│   │   │   │   ├── UserRecommendations.tsx
+│   │   │   │   ├── feature
+│   │   │   │   │   ├── HandleGenie.tsx
+│   │   │   │   │   ├── handleBrief.ts
+│   │   │   │   │   └── handleUserRecommendation.tsx
+│   │   │   │   └── styles
+│   │   │   │       ├── audioRecorder.style.tsx
+│   │   │   │       ├── brief.style.tsx
+│   │   │   │       ├── categories.style.tsx
+│   │   │   │       ├── header.style.tsx
+│   │   │   │       ├── liveBrief.style.tsx
+│   │   │   │       ├── profileCircle.style.tsx
+│   │   │   │       ├── sectionTitle.style.tsx
+│   │   │   │       ├── sideBar.style.tsx
+│   │   │   │       └── userRecommendation.style.tsx
+│   │   │   ├── Customize
+│   │   │   │   ├── Customize.tsx
+│   │   │   │   ├── component
+│   │   │   │   │   └── SetProfile.tsx
+│   │   │   │   └── styles
+│   │   │   │       └── setProfile.style.tsx
+│   │   │   ├── Main
+│   │   │   │   ├── Main.tsx
+│   │   │   │   ├── components
+│   │   │   │   │   ├── ThemeRecommendation.tsx
+│   │   │   │   │   └── TodayHeadline.tsx
+│   │   │   │   ├── feature
+│   │   │   │   │   ├── handleHeadline.tsx
+│   │   │   │   │   └── handleThemeRecommendation.tsx
+│   │   │   │   └── styles
+│   │   │   │       ├── main.style.tsx
+│   │   │   │       ├── themeRecommendation.style.tsx
+│   │   │   │       └── todayHeadline.style.tsx
+│   │   │   ├── Profile
+│   │   │   │   ├── Profile.tsx
+│   │   │   │   ├── components
+│   │   │   │   │   └── SelectProfile.tsx
+│   │   │   │   └── styles
+│   │   │   │       └── selectProfile.style.tsx
+│   │   │   ├── Themes
+│   │   │   │   ├── Themes.tsx
+│   │   │   │   ├── components
+│   │   │   │   │   ├── ThemeArticles.tsx
+│   │   │   │   │   └── test.tsx
+│   │   │   │   ├── feature
+│   │   │   │   │   └── handleThemes.tsx
+│   │   │   │   └── styles
+│   │   │   │       ├── themeArticles.style.tsx
+│   │   │   │       └── themes.style.tsx
+│   │   │   └── styles.tsx
+│   │   ├── react-app-env.d.ts
+│   │   ├── redux
+│   │   │   ├── article.slice.tsx
+│   │   │   ├── brief.slice.tsx
+│   │   │   ├── headline.slice.tsx
+│   │   │   ├── interface.tsx
+│   │   │   ├── recommendation.slice.tsx
+│   │   │   ├── selector.tsx
+│   │   │   ├── store.tsx
+│   │   │   ├── themeArticles.slice.tsx
+│   │   │   └── themeRecommendation.slice.tsx
+│   │   ├── requests
+│   │   │   ├── requestArticle.ts
+│   │   │   ├── requestAudio.ts
+│   │   │   ├── requestHeadline.ts
+│   │   │   ├── requestPolite.ts
+│   │   │   ├── requestSummary.ts
+│   │   │   ├── requestTheme.ts
+│   │   │   ├── requestThemeRecommendation.ts
+│   │   │   └── requestUserRecommendation.ts
+│   │   └── utils
+│   │       ├── checkDataloaded.ts
+│   │       └── decoder.ts
+│   └── tsconfig.json
+├── run.sh
+├── scripts.sh
+├── server
+│   ├── build
+│   │   ├── asset-manifest.json
+│   │   ├── favicon.ico
+│   │   ├── image
+│   │   │   └── image1.jpg
+│   │   ├── index.html
+│   │   ├── logo192.png
+│   │   ├── logo512.png
+│   │   ├── manifest.json
+│   │   ├── robots.txt
+│   │   └── static
+│   │       ├── css
+│   │       │   ├── main.ca96cd0c.css
+│   │       │   └── main.ca96cd0c.css.map
+│   │       └── js
+│   │           ├── main.0fd7d578.js
+│   │           ├── main.0fd7d578.js.LICENSE.txt
+│   │           └── main.0fd7d578.js.map
+│   ├── config.json
+│   ├── crawl
+│   │   ├── crawl.py
+│   │   ├── naver_news_crawl
+│   │   │   ├── __init__.py
+│   │   │   ├── articlecrawler.py
+│   │   │   ├── articleparser.py
+│   │   │   ├── commentcrawler.py
+│   │   │   ├── exceptions.py
+│   │   │   └── writer.py
+│   │   ├── output
+│   │   │   ├── Article_IT과학_20230816_20230816.csv
+│   │   │   ├── Article_경제_20230816_20230816.csv
+│   │   │   ├── Article_사회_20230816_20230816.csv
+│   │   │   ├── Article_생활문화_20230816_20230816.csv
+│   │   │   ├── Article_세계_20230816_20230816.csv
+│   │   │   ├── Article_오피니언_20230816_20230816.csv
+│   │   │   ├── Article_정치_20230816_20230816.csv
+│   │   │   ├── Comment_경제_20230816_20230816.csv
+│   │   │   ├── Comment_사회_20230816_20230816.csv
+│   │   │   ├── Comment_생활문화_20230816_20230816.csv
+│   │   │   ├── Comment_세계_20230816_20230816.csv
+│   │   │   ├── Comment_오피니언_20230816_20230816.csv
+│   │   │   └── Comment_정치_20230816_20230816.csv
+│   │   └── sync_db.py
+│   ├── feature
+│   │   ├── request_genie.py
+│   │   └── request_helper.py
+│   ├── model
+│   │   ├── Changer
+│   │   │   ├── changer.py
+│   │   │   ├── kdictionary.py
+│   │   │   ├── request_polite.py
+│   │   │   └── utils.py
+│   │   ├── README.md
+│   │   ├── data
+│   │   │   ├── _category_mapping.csv
+│   │   │   ├── _press_mapping.csv
+│   │   │   ├── _title_mapping.csv
+│   │   │   └── data.csv
+│   │   ├── data.py
+│   │   ├── data_preprocess.py
+│   │   ├── embed.py
+│   │   ├── main.py
+│   │   ├── model.py
+│   │   └── utils.py
+│   ├── requirements.txt
+│   ├── server.py
+│   ├── test.py
+│   └── utils
+│       ├── decorators.py
+│       └── schemas.py
+├── server.sh
+└── setup.sh

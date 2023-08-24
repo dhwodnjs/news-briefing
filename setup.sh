@@ -1,5 +1,8 @@
 #!/bin/bash
 
+
+### Frontend setup script ### 
+
 # Check if path argument provided
 if [ "$1" != "--path" ] || [ -z "$2" ]; then
     echo "Usage: setup.sh --path path/to/clone"
@@ -34,5 +37,22 @@ git clone https://github.com/orange-fritters/news-briefing "$CLONE_PATH"
 echo "Installing project dependencies..."
 cd "$CLONE_PATH/frontend"
 npm install
+
+echo "Setup complete!"
+
+### Backend setup script ###
+
+if [[ $PWD != *"server"* ]]; then
+    cd server
+fi
+
+# Create virtual environment
+echo "Creating virtual environment..."
+python3 -m venv venv
+
+# Activate virtual environment and install dependencies
+source venv/bin/activate
+pip install --upgrade pip
+pip install -r requirements.txt
 
 echo "Setup complete!"

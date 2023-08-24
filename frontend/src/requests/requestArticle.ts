@@ -1,7 +1,7 @@
 export const requestArticle = async (article_id: number) => {
   // const response = await fetch("/api/sample", {
   const response = await fetch(
-    `http://172.30.1.85:8000/article/api/${article_id}`,
+    `http://${process.env.REACT_APP_IP_ADDR}:8000/article/api/${article_id}`,
     {
       method: "GET",
       headers: {

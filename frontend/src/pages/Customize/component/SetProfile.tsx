@@ -1,7 +1,7 @@
 import * as S from "../../styles";
 
 const SetProfile = () => {
-  const img = process.env.PUBLIC_URL + `/image/image1.jpg`;
+  const img = process.env.PUBLIC_URL + `/image1.jpg`;
 
   const defaultTheme = [
     {

@@ -1,108 +1,58 @@
-# file structure
+# Genie news briefing
 
-- frontend
+## Installation
 
-  - public
-  - src
+Please refer `setup.sh` for installation
+- [setup.sh](setup.sh)
+- [SETUP.md](SETUP.md) can help too
 
-    - pages
+**Overview**
 
-      - main.tsx
-      - article.tsx
-      - customize.tsx
-      - profile.tsx
-      - theme.tsx
+1. Install `nvm` and `node`
+2. Install `npm`
+3. Clone the repository
+4. Install dependencies for the frontend
+5. Make virtual environment for the backend
+6. Install dependencies for the backend
 
-    - styles
+## Run
 
-      - pages
-        - main.styled.tsx
-        - article.styled.tsx
-        - ...
-      - components
-        - ...
+**First**, set your genie labs api keys to the
+`server/config.json`
+```{
+  "CLIENT_ID": "",
+  "CLIENT_SECRET": "",
+  "CLIENT_KEY": ""
+}
+```
 
-    - components
+After the setup, you can run the project with either
+- `npm run start` with local server
+- Direct access to the server
 
-      - window
+### Overview
 
-        - window.tsx
+Please refer `server.sh` for running the project. Implemented mac and linux auto run script.
 
-      - common
+- [server.sh](server.sh)
 
-        - ~ ~ .tsx
+1. Check build folder inside `server/` if exist, remove it
+2. Export IP address as environment variable and build the frontend
+3. Copy files to the server
+4. Export IP address to the server and run the server
+5. Run uvicorn server
 
-      - main
+### Run with local server
 
-        - headline.tsx
-        - ranking.tsx (?)
-        - ...
+- open another terminal and copy code from `frontend/sh`. It includes exporting IP address as environment variable and running the frontend
 
-      - article
+### Direct access to the server
 
-        - ~~.tsx
+- Access the URL uvicorn informs you
 
-      - stt
-        - stt.tsx
+## Version
 
-    - features
-
-      - common
-        - startSTT.ts
-      - main
-        - getHeadline.ts
-        - getRanking.ts
-        - ...
-      - article
-        - getArticle.ts
-        - ...
-
-    - redux
-
-      - slicer
-        - main.slice.ts
-        - article.slice.ts
-      - store.ts
-
-    - utils
-
-      - decoder.ts
-
-    - request_api
-
-      - requestHeadline.ts
-
-    - App.tsx
-    - index.tsx
-
-- crawl
-
-  - main.py
-    ```
-    네이버 뉴스 -> 랭킹
-    ```
-
-- backend
-  - server.py
-  - db
-    - something
-  - services
-  - utils
-  - models
-
-# Version
-
-- Python 3.8
-- fastapi 0.100.1
-
-- Node 18.12.0
-- npm 9.8.1
-
-- React 18.2.20
-- Redux 4.2.1
-- Typescript 4.9.5
-- styled-components 6.0.7
-
-- ESLint 8.46.0
-- Prettier 3.0.1
-- create-react-app 5.0.1
+- Backend versions
+  goto [server/requirments.txt](server/requirements.txt)
+- Frontend versions
+  goto [frontend/package.json](frontend/package.json)
